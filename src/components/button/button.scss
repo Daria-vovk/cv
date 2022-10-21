@@ -1,0 +1,103 @@
+.btn-default {
+     font-size: 20px;
+     padding: .75em;
+     border-radius: 5px;
+     white-space: nowrap;
+     border: 2px solid #000;
+     transition: all 0.2s ease 0s;
+
+     @media (min-width: 750px) {
+          &:hover {
+               transform: scale(1.1) translateY(-5px);
+          }
+     }
+
+     @media (max-width: 751px) {
+          &:active {
+               transform: scale(1.1) translateY(-5px);
+          }
+     };
+
+}
+
+.btn-yellow {
+     background-color: #FBFF22;
+     border: 2px solid #FBFF22;
+     color: #000;
+     transition: all 0.3s ease 0s;
+
+     @media (min-width: 750px) {
+          &:hover {
+               box-shadow: 0px 4px 5px 4px #636504 !important; 
+          }
+     }
+
+     @media (max-width: 751px) {
+          &:active {
+               box-shadow: 0px 4px 5px 4px #7a7c0e 
+          }
+     };
+
+}
+
+.btn-white-border {
+     border: 2px solid #fff;
+
+     @media (min-width: 750px) {
+          &:hover {
+               box-shadow: 0px 4px 5px 4px #272726; 
+          }
+     }
+
+     @media (max-width: 751px) {
+          &:active {
+               box-shadow: 0 7px 5px 1px #272726;
+          }
+     };
+}
+
+.btn-pseudo {
+     position: relative;
+
+     &::before {
+          content: "";
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin: 0px 10px 0px 0px;
+          pointer-events: none;
+          transform: translateY(-8%);
+          background: url("../../assets/icons/mainPage/file-text-fill.svg") center/contain no-repeat;
+          vertical-align: middle;
+     }
+}
+
+.btn-cart-btn {
+     @media (max-width:920px) {
+          font-size: 15px;
+          padding: .3em;
+     }
+
+     @media (max-width:730px) {
+          width: 100%;
+          align-self: center
+     }
+}
+
+.btn-yell-border {
+     border: 2px solid #FBFF22;
+     color:#FBFF22;
+     align-self: center;
+
+     @media (min-width: 750px) {
+          &:hover {
+               box-shadow: 0px 4px 5px 1px #FBFF22 
+          }
+     }
+
+     @media (max-width: 751px) {
+          &:active {
+               box-shadow: 0px 4px 5px 1px #FBFF22 
+          }
+     };
+}
