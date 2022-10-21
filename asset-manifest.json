@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/portfolio-target/static/css/main.eb604817.css",
-    "main.js": "/portfolio-target/static/js/main.b0fcb17f.js",
+    "main.css": "/portfolio-target/static/css/main.20cc4454.css",
+    "main.js": "/portfolio-target/static/js/main.28258514.js",
     "static/media/mainPhoto.jpg": "/portfolio-target/static/media/mainPhoto.baa8b191ff19139cb151.jpg",
     "static/media/instagram.svg": "/portfolio-target/static/media/instagram.7f09c5ce0121c6d53e21.svg",
+    "static/media/biggift.svg": "/portfolio-target/static/media/biggift.9e5f0f925ae605c9146301c0f281543f.svg",
     "static/media/whatsapp.svg": "/portfolio-target/static/media/whatsapp.0946dc09f65fc05c8a6d.svg",
     "static/media/Group11.svg": "/portfolio-target/static/media/Group11.31600fd8ad3de9601c3ef558bb80c847.svg",
     "static/media/linkedin.svg": "/portfolio-target/static/media/linkedin.e56d8a0964d9a865b877.svg",
+    "static/media/email.svg": "/portfolio-target/static/media/email.7d7f192877767b8ce97c.svg",
     "static/media/file-text-fill.svg": "/portfolio-target/static/media/file-text-fill.38dd4a6bf3baebc7f63a.svg",
     "index.html": "/portfolio-target/index.html",
     "static/media/pluses.svg": "/portfolio-target/static/media/pluses.c0851210408e112cb8ac.svg",
     "static/media/lines-right.svg": "/portfolio-target/static/media/lines-right.91c2c1417958bba30c81.svg",
     "static/media/fb.svg": "/portfolio-target/static/media/fb.a9103878a967f19c9754.svg",
-    "main.eb604817.css.map": "/portfolio-target/static/css/main.eb604817.css.map",
-    "main.b0fcb17f.js.map": "/portfolio-target/static/js/main.b0fcb17f.js.map"
+    "main.20cc4454.css.map": "/portfolio-target/static/css/main.20cc4454.css.map",
+    "main.28258514.js.map": "/portfolio-target/static/js/main.28258514.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb604817.css",
-    "static/js/main.b0fcb17f.js"
+    "static/css/main.20cc4454.css",
+    "static/js/main.28258514.js"
   ]
 }
