@@ -65,7 +65,13 @@ const MainPage = () => {
 
      useEffect(() => {
           document.addEventListener("scroll", showGiftIcon);
-          // setTimeout(() => openGiftPopupUpAuto(), 20000); 
+          const timeoutID = setTimeout(() => openGiftPopupUpAuto(), 240000);
+
+          return () => {
+               document.removeEventListener("scroll", showGiftIcon);
+               clearTimeout(timeoutID);
+          };
+          
      }, [])
 
 
