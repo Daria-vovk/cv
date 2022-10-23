@@ -1,5 +1,5 @@
 .form {
-display: none;
+
 
      z-index: 10;
      position: fixed;
@@ -14,53 +14,78 @@ display: none;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+          width: 20%;
+          min-width: 280px;
+
           
           display: flex;
           flex-direction: column;
-          height: 80%;
-          width: 70%;
+          align-items: center;
+          gap: 10px;
           box-sizing: border-box;
           padding: 20px;
-          justify-content: center;
-          gap: 10px;
-          border: 4px solid #FBFF22;
-          background-color: transparent;
-          background-color: rgba(255, 255, 255);
-          border-radius: 15px;
+          border: 1px solid #FBFF22;
+          border-radius: 45px 10px 45px 10px;
+
+          &:focus {
+               border: 1px solid #FBFF22;
+          }
      }
 
      &__content {
-          flex: 1 1 auto;
+          flex: 1 1 100%;
+          // overflow: hidden;
+          color: #FBFF22;
      }
 
      input {
           display: block;
-          width: 100%;
-          padding: 10px 10px;
-          border: 4px solid #000;
-          color:#000;;
+          width: 90%;
+          height: 12%;
+          padding: .5em;
+          border: 1px solid #999;
+          color: #FBFF22;
           border-radius:5px;
           background-color: inherit;
-          text-align: center;
-          font-size: 20px;
-          font-weight: 600;
-
+          font-weight: 400;
+          transition: all 0.3s ease 0s;
+          
+          &::placeholder {
+               color: #999;
+               font-size: 10px;
+          }
           &:not(:last-child) {
                margin-bottom: 1em;
+          }
+
+          &:focus {
+               border: 1px solid #FBFF22;
+               transform: scale(1.11);
           }
      }
 
      &__text-area {
           resize: none;
-          width: 100%;
+          width: 90%;
+          margin: 10px 0;
+          height: 100px;
           padding: 10px;
-          background-color: inherit;
-          border: 4px solid #000;
-          color:#000;;
-          border-radius:5px;
-          text-align: center;
-          // font-size: 20px;
-          font-weight: 600;
+          background-color: #3c3c3c68;
+          color:#FBFF22;
+          font-weight: 400;
+          overflow: auto;
+          transition: all 0.3s ease 0s;
+          border-radius: 15px 45px;
+
+          &::placeholder {
+               color: #999;
+               font-size: 10px;
+          }
+
+          &:focus {
+               border: 1px solid #FBFF22;
+               transform: scale(1.11);
+          }
      }
 
      &__name-input {
@@ -73,5 +98,12 @@ display: none;
      }
 
      &__btn-input {
+     }
+
+     &__close {
+          color:#FBFF22;
+          position: absolute;
+          right: -40px;
+          top: -40px;
      }
 }

@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import "./button.scss";
 
-const Button = ({ children, isMenu, isYellow, isWhiteBorder, pseuElem, isCarts, yellBorder }) => {
+const Button = ({ children, isMenu, isYellow, isWhiteBorder, pseuElem, isCarts, yellBorder, handleClick, handleOpeningForm }) => {
 
      const customization = classNames("button btn-default", {
           "btn-yellow": isYellow,
@@ -14,7 +14,16 @@ const Button = ({ children, isMenu, isYellow, isWhiteBorder, pseuElem, isCarts, 
      });
 
      return (
-          <button className={customization}>
+          <button 
+               className={customization}
+               onClick={(e) => {
+                    if (e.target.classList.contains("btn-yell-border")) {
+                         handleOpeningForm()
+                    } else if (e.target.classList.contains("btn-yellow")) {
+                         handleClick(e)
+                    } 
+               } }
+          >
                {children}
           </button>
      );

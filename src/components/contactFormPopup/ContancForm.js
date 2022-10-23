@@ -2,7 +2,7 @@ import Button from "../button/Button";
 
 import "./contactForm.scss"
 
-const ContactForm = () => {
+const ContactForm = ({handleClosingForm}) => {
      return (
           <form action="#" className="form" tabIndex="0" autoComplete="on">
                <div className="form__wrapper">
@@ -12,7 +12,16 @@ const ContactForm = () => {
                          <input  className="form__link-input" type="text"  name="link" placeholder="Посилання на аккаунт Instagram" tabIndex="0" autoComplete="on" required/>
                          <textarea className="form__text-area" name="comment" cols="30" rows="10"  placeholder="Коментар"></textarea>
                     </div>
-                    <Button className="form__btn-input" tabIndex="0" children="Надіслати" isYellow/>
+                    <Button className="form__btn-input" tabIndex="1" children="Надіслати" isYellow/>
+                    <button 
+                         className="form__close"
+                         onClick={() => {
+                              document.body.classList.remove("_lock");
+                              handleClosingForm();
+                         }}
+                    >
+                         &times;
+                    </button>
                </div>
           </form> 
      );

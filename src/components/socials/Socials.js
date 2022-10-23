@@ -10,7 +10,7 @@ const Socials = () => {
           {name: "fb", link: "https://ru-ru.facebook.com/people/%D0%94%D0%B0%D1%80%D1%96%D1%8F-%D0%92%D0%BE%D0%B2%D0%BA/100082836740229/", type: "string"},
           {name: "inst", link: "https://www.instagram.com/dariia_vovk/",  type: "string"},
           {name: "whtup", link: "tel:+380963276820",  type: "number"},
-          {name: "mail", link: "mailto:skaretskiy1999@gmail.com",  type: "mail"},
+          {name: "mail", link: "mailto:dariyavovk1012@gmail.com",  type: "mail"},
           // {name: "linkIn", link: "nothing",  type: "nothing"},
      ]);
 
