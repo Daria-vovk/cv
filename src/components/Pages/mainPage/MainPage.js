@@ -10,23 +10,23 @@ const MainPage = () => {
           {
                name: "FoodRuns Mobile Apps",
                id: 0,
-               thumbs: ["1.jpg", "2.jpg"],
+               thumbs: ["clos.jpg", "1.jpg", "2.jpg"],
                desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur sequi pariatur ea deleniti cumque excepturi quidem provident reprehenderit maxime ipsa!"
           },
           {
-               name: "Real Estate Landing Page",
+               name: "Estate Landing Page",
                id: 1,
                thumbs: "2.jpg",
                desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati."
           },
           {
-               name: "Real Estate Landing Page",
+               name: "Estate Landing Page",
                id: 2,
                thumbs: "3.jpg",
                desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati."
           },
           {
-               name: "Sneakers E- commerce Mobile App",
+               name: "Sneakers E-commerce Mobile App",
                id: 3,
                thumbs: "4.jpg",
                desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati."
@@ -85,7 +85,9 @@ const MainPage = () => {
                </h6>
                <div className="main-page__projects projects-block">
                     <div className="projects-block__container _container-project">
-                         {renderProject(projectCarts)}
+                         {
+                              renderProject(projectCarts)
+                         }
                          <div className="projects-block__actions-block">
                               <Button children="Побачити більше" isYellow/>
                               <svg width="994" height="216" viewBox="0 0 994 216" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,20 +104,20 @@ const MainPage = () => {
                               />
                          </div>
                     </div>
+                    {
+                         isOpenGift ? <GiftPopup handleClosingPopup={() => setIsOpenGift(!isOpenGift)}/> 
+                                   : showIconGift && !wasOpenGift ? <img 
+                                                                      src={gift} 
+                                                                      alt="Іконка подарунку" 
+                                                                      className="main-page__gift-icon"
+                                                                      onClick={() => handleOpenGiftModal()}/>
+                                                                 : null
+                    }
+                         
+                    {
+                         isOpenForm ? <ContactForm handleClosingForm={() => setIsOpenForm(false)}/> : null
+                    }
                </div>
-               {
-                    isOpenGift ? <GiftPopup handleClosingPopup={() => setIsOpenGift(!isOpenGift)}/> 
-                              : showIconGift && !wasOpenGift ? <img 
-                                                                 src={gift} 
-                                                                 alt="Іконка подарунку" 
-                                                                 className="main-page__gift-icon"
-                                                                 onClick={() => handleOpenGiftModal()}/>
-                                                            : null
-               }
-               
-               {
-                    isOpenForm ? <ContactForm handleClosingForm={() => setIsOpenForm(false)}/> : null
-               }
           </div >
      );
 };

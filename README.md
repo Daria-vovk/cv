@@ -70,8 +70,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-<!-- 1. Збільшити z-index подарунку -->
-<!-- 2. Зроби компонент слайдера -->
-<!-- 3. Доробити форму -->
-4. Написати логіку відкривання модалок (щоб зникав скрол сайту)
-<!-- 5. Прибрати можливість зуму на телефоні -->
+1. Мінімальну ширину подарунку
+2. Відмітити головну сторінку

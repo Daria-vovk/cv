@@ -1,8 +1,10 @@
 import { useState } from "react";
 import classNames from "classnames";
+import { v4 as uuidv4 } from 'uuid';
+
 import "./feedbalckSlider.scss"
 
-const FeedbalckSlider = ({thumbsArr, desc, handleClick }) => {
+const FeedbalckSlider = ({thumbsArr, handleClick }) => {
      
      const [imgPathIndex, setImgPathIndex] = useState(0);
 
@@ -29,6 +31,7 @@ const FeedbalckSlider = ({thumbsArr, desc, handleClick }) => {
                     <button 
                          className={classDot}
                          onClick={() => setImgPathIndex(i)}
+                         key={uuidv4()}
                     ></button>
                )
           });
@@ -39,32 +42,31 @@ const FeedbalckSlider = ({thumbsArr, desc, handleClick }) => {
                <div className="swiper__wrapper">
                     <div className="swiper__slide slide">
                          <img src={imgPath} alt="слайдер " />
-                         <div className="slide__desc"> {desc}</div>
                     </div>
+                    <button 
+                         className="swiper__button-prev swiper__button-prev_prev1"
+                         onClick={() => handleChangeSlide(-1)}
+                    >
+                         &and;
+                    </button>
+                    <button 
+                         className="swiper__button-next"
+                         onClick={() => handleChangeSlide(+1)}
+                    >
+                         &or;
+                    </button>
+                    <div className="swiper__pagination-block">
+                         {
+                              renderPaginationDots(thumbsArr)
+                         }
+                    </div>
+                    <button 
+                         className="swiper__close"
+                         onClick={(e) => handleClick(e)}
+                    >
+                         &times;
+                    </button>
                </div>
-               <button 
-                    className="swiper__button-prev swiper__button-prev_prev1"
-                    onClick={() => handleChangeSlide(-1)}
-               >
-                    &and;
-               </button>
-               <button 
-                    className="swiper__button-next"
-                    onClick={() => handleChangeSlide(+1)}
-               >
-                    &or;
-               </button>
-               <div className="swiper__pagination-block">
-                    {
-                         renderPaginationDots(thumbsArr)
-                    }
-               </div>
-               <button 
-                    className="swiper__close"
-                    onClick={(e) => handleClick(e)}
-               >
-                    &times;
-               </button>
           </div>
      );
 };
