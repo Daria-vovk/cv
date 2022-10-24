@@ -1,45 +1,45 @@
 .swiper {
      z-index: 5;
      position: fixed;
-     left: 50%;
-     top: 50%;
-     transform: translate(-50%, -50%);
-     max-width: 1200px;
+     left: 0;
+     top: 0;
+     height: 100%;
      width: 100%;
      border-radius: 10px;
-     box-sizing: border-box;
+     background-color: rgb(0, 0, 0, .7);
 
      &__wrapper {
+          top: 50%;
+          transform: translateY(-50%);
           position: relative;
-          padding: 3% 10px ;
+          padding: 60px 40px ;
+          width: 100%;
           margin: 0 auto;
-          background-color: rgba(19, 19, 19, 1);
-          
-          @media (min-width: 730px) {
-               width: 75%;
-          };
+          // background-color: rgba(19, 19, 19, 1);
 
-          @media (max-width: 485px) {
-               padding: 0
+          @media (max-width: 520px) {
+               padding: 40px 5px ;
           };
      }
 
      &__slide {
           position: relative;
-          width: 100%;
-          padding: 25% 0 220px;
+          max-width: 1500px;
+          margin: 0 auto;
+          padding: 400px 40px 220px 40px;
 
-          @media (max-width: 486px) {
+          @media (max-width: 979px) {
                padding: 20% 0 220px;
           };
 
-          @media (max-width: 353px) {
+          @media (max-width: 450px) {
                padding: 10% 0 220px;
           };
 
           img {
                position: absolute;
                top: 0;
+               left: 0;
                width: 100%;
                height: 100%;
                object-fit: contain;
@@ -65,8 +65,13 @@
           transition: all 0.3s ease 0s;
 
           &_prev1 {
-               left: 10px;
+               left: 20px;
                bottom: 50%;
+
+               @media (max-width: 520px) {
+                    left: calc(50% - 80px);
+                    bottom: 40px;
+               };
           }
 
           @media (min-width: 750px) {
@@ -86,16 +91,21 @@
 
      &__button-next {
           @extend .swiper__button-prev;
-          right: 10px;
+          right: 20px;
           bottom: 50%;
           transform: rotate(-90deg) translate(-50%);
+
+          @media (max-width: 520px) {
+               bottom: 40px;
+               right: calc(50% - 80px);
+          };
 
      }
 
      &__close {
-          position: fixed;
-          right: 120px;
-          top: 10px;
+          position: absolute;
+          right: -20px;
+          top: 0;
           width: 25px;
           line-height: 25px;
           font-size: 32px;
@@ -103,14 +113,6 @@
           transition: all 0.3s ease 0s;
           background-color: #fff;
           border-radius: 50%;
-
-          @media (min-width: 731px) {
-               right: 50px;
-          };
-
-          @media (max-width: 730px) {
-               right: 10px;
-          };
 
           @media (min-width: 750px) {
                &:hover {
@@ -123,6 +125,11 @@
                     color: #FBFF22;
                }
           }
+
+          @media (max-width: 520px) {
+               right: 10px;
+               top: -20px;
+          };
      }
 
      &__pagination-block {

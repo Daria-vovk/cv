@@ -15,10 +15,20 @@ const ProjectCart = ({ name, thumbs }) => {
           )
      }
 
+     const handleOpeningSlider= (e) => {
+          if (!e) return;
+
+          document.body.classList.add("_lock");
+          
+          setIsSlider(true);
+     }
+
      const handleClosingSlider= (e) => {
           if (!e) return;
 
-          setIsSlider(!isSlider)
+          document.body.classList.remove("_lock");
+          
+          setIsSlider(false);
      }
 
      const initImagePath = Array.isArray(thumbs) ? thumbs[0] : thumbs
@@ -27,7 +37,7 @@ const ProjectCart = ({ name, thumbs }) => {
           <>      
                <div 
                     className="project__block"
-                    onClick={(e) => handleClosingSlider(e)}
+                    onClick={(e) => handleOpeningSlider(e)}
                >
                     <div className="project__image-block">
                          <img src={process.env.PUBLIC_URL + `/${initImagePath}`} alt="Фото проекта" />
@@ -39,7 +49,7 @@ const ProjectCart = ({ name, thumbs }) => {
                               }
                          </h3>
                          <Button 
-                              handleClick={(e) => handleClosingSlider(e)}
+                              handleClick={(e) => handleOpeningSlider(e)}
                               children="Побачити результ" 
                               isCarts 
                               isYellow

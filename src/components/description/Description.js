@@ -15,8 +15,7 @@ const Description = () => {
 
                     </p>
                     <div className="main-page__btn-section">
-                         <Button isYellow pseuElem>Моє портфоліо</Button>
-                         <Button isWhiteBorder>Дізнатися більше</Button>
+                         <Button isYellow pseuElem>Напиши мені</Button>
                     </div>
                </div>
                <div className="main-page__right-side">
