@@ -23,6 +23,7 @@ const ContactForm = ({handleClosingForm}) => {
                          &times;
                     </button>
                </div>
+               <div className="bg-img"></div>
           </form> 
      );
 };

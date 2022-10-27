@@ -70,9 +70,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-1. Блок з відгуками
-2. Варіант послуг (Таргет, Консультації, СММ)
-3. Блок з Моїм досвідом
+<!-- 1. Блок з відгуками -->
+<!-- 2. Варіант послуг (Таргет, Консультації, СММ) -->
+<!-- 3. Блок з Моїм досвідом -->
 3. Реалізувати лазі лоадинг 
 4. Додати Трансишион груп але перед почитати за useTransition
-5. Валідація форми
+
+5. Валідація форми, інпут в фокус, скролл на мобілке
+
+6. Пофіксіть відображення модалок на тефоні (при відкритті клавіатури)

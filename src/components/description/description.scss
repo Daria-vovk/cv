@@ -215,6 +215,15 @@
           height: 500px;
           clip-path: circle(45% at 51% 50%);
 
+          @keyframes load {
+               from {
+                   left: -100px;
+               }
+               to   {
+                   left: 80%;
+               }
+          }
+
           img {
                width: 100%;
           }

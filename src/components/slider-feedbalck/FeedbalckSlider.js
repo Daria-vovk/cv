@@ -60,7 +60,7 @@ const FeedbalckSlider = ({thumbsArr, handleClick }) => {
                                         : null
                     }
                     {
-                         Array.isArray(thumbsArr) ? <button 
+                         thumbsArr[imgPathIndex + 1] ? <button 
                                                             className="swiper__button-next"
                                                             onClick={() => handleChangeSlide(+1)}
                                                        >

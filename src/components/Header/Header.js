@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-
+import classNames from "classnames"
 import { v4 as uuidv4 } from 'uuid';
 import Button from "../button/Button";
 import Socials from "../socials/Socials";
@@ -9,7 +9,8 @@ import "./header.scss";
 const Header = () => {
 
      const [pages, setPages] = useState(["Головна", "Моя історія", "Проекти", "Співпраця"]);
-     const currentLink = useRef(null);
+     const [isBurger, setIsBurger] = useState(false);
+     const currentLink = useRef();
      
      const handleClickToSocials = (e) => {
 
@@ -53,17 +54,28 @@ const Header = () => {
           });
      };
 
+     const burgerClass = classNames("header__right-side right-burger", {
+          "active": isBurger
+     });
+
      return (
           <header className="header">
                <div className="header__container _container">
-                    <ul className="header__left-side" ref={currentLink}>
+                    <ul className="header__left-side1" ref={currentLink}>
                          <li className="header__find-me">Я у соціальних</li>
                          {
                               <Socials/>
                          }
                     </ul>
-                    <ul className="header__right-side right-burger">
-                         <div className="right-burger__icon">
+                    <ul className={burgerClass}>
+                         <div 
+                              className="right-burger__icon"
+                              onClick={() => {
+                                   setIsBurger(!isBurger);
+                                   document.body.classList.toggle("_lock");
+                              }}
+                         
+                         >
                               <span></span>
                               <span></span>
                               <span></span>

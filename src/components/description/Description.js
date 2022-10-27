@@ -2,6 +2,7 @@ import Button from "../button/Button";
 
 import mainPhoto from "../../assets/mainPage/mainPhoto.jpg";
 import "./description.scss"
+import { LazyLoadingImage } from "../transponder";
 
 const Description = () => {
      return (
@@ -22,7 +23,7 @@ const Description = () => {
                     <div className="main-page__wrapper">
                          <span></span>
                          <div className="main-page__image-block">
-                              <img src={mainPhoto} alt="фото Дарії" />
+                              <LazyLoadingImage src={mainPhoto} alt="Дарія"/>
                          </div>
                     </div>
                </div>

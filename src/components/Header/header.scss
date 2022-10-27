@@ -11,15 +11,18 @@
      }
 
 
-     &__left-side {
+     &__left-side1 {
           display: flex;
           align-items: center;
           gap: 5px 1em;
           margin-right: 20px;
+          text-align: center !important;
 
-          @media (max-width: 950px) {
+          @media (max-width: 1120px) {
+               text-align: center;
                flex: 1 1 auto;
                justify-content: center;
+               align-items: center;
           }
 
           @media (max-width: 400px) {
@@ -46,7 +49,7 @@
      }
 
      &__social-media {
-          z-index: 5;
+          z-index: 7;
           width: 50px;
           height: 50px;
           border-radius: 50%;
@@ -112,9 +115,11 @@
      }
 
      &__menu {
-          @extend .header__left-side;
-          flex-wrap: wrap;
+          @extend .header__left-side1;
+          // flex-wrap: wrap;
           margin: 0;
+          z-index: 6;
+          height: 100%;
      }
 
      &__pages-item {
@@ -136,6 +141,7 @@
      @media (max-width: 950px) {
           &__icon {
                display: block;
+               z-index: 7;
                position: relative;
                top: 0;
                left: 0;
@@ -164,15 +170,18 @@
 
                }
 
-               &:hover {
-                    span {
-                         transform: scale(1.2);
-                    }
-
-                    span:not(:nth-child(2)) {
-                         box-shadow: 3px -2px 10px 2px #FBFF22;
+               @media (min-width: 750px) {
+                    &:hover {
+                         span {
+                              transform: scale(1.2);
+                         }
+     
+                         span:not(:nth-child(2)) {
+                              box-shadow: 3px -2px 10px 2px #FBFF22;
+                         }
                     }
                }
+
           }
 
 
@@ -180,6 +189,7 @@
                .right-burger {
 
                     &__icon {
+                         z-index: 7;
                          span {
                               transform: scale(0);
                          }
@@ -194,8 +204,13 @@
                     }
 
                     &__body {
+                         position: fixed;
+                         left: 0;
+                         top: 0;
                          display: block;
                          width: 100%;
+                         height: 100%;
+                         z-index: 6;
                     }
 
                     &__menu {
@@ -210,6 +225,8 @@
                          overflow: auto;
                          background-color: #000;
                          text-align: center;
+                         display: flex;
+                         flex-direction: column;
 
                     }
                }
