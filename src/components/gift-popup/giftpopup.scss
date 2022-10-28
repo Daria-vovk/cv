@@ -9,6 +9,7 @@
      height: 100%;
      // min-width: ;
      background-color: rgb(0, 0, 0, .9);
+     overflow: auto;
 
      &__dialog {
           height: 100%;
@@ -20,8 +21,10 @@
 
      &__content {
           position: absolute;
-          width: 740px;
-          margin: 0 auto;
+          // width: 740px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           max-width: 740px;
           padding: 20px;
           background-color: #FBFF22;
@@ -58,23 +61,35 @@
                }
 
                @media (max-width: 900px) {
-                    font-size: 20px;
+                    font-size: 17px;
+               };
+
+               @media (max-width: 410px) {
+                    font-size: 15px;
+                    padding: 10px 10px;
                };
           }
 
           @media (max-width: 900px) {
-               width: 70%;
+               width: 100%;
+               padding: 20px 0;
           };
      }
 
      &__close {
           font-size: 32px;
           position: absolute;
-          right: -20px;
-          top: -30px;
-          color: #FBFF22;
-          background-color: #000;
+          right: 20px;
+          top: 0;
+          color:#000;
+          background-color: transparent;
           cursor: pointer;
+
+          @media (min-width: 810px) {
+               right: -20px;
+               top: -30px;
+               color: #FBFF22;
+          };
      }
 
      &__socials-list {
