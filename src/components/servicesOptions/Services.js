@@ -28,7 +28,7 @@ const Services = ({handleOpeningForm}) => {
      const transitions = useTransition(serviceContent, {
           from: {opacity: 0,transform: "translateY(-50%) scale(0.4)"},
           enter: {opacity: 1, flex: "0 0 400px" , transform: "translateY(0%) scale(1)"},
-          leave: { opacity: 0, transform: "translateY(50%) scale(0.4)",  position: "absolute"},
+          leave: { opacity: 0, transform: "translateY(150%) scale(0.4)",  position: "absolute"},
           reverse: serviceContent,
           config: {
                duration: 500

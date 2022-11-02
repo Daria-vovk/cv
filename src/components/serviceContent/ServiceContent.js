@@ -7,7 +7,7 @@ import { Button, SliderService } from '../transponder';
 import "./serviceContent.scss";
 
 
-const ServiceContent = ({title, service, thumbs, handleOpeningForm, styleProps}) => {
+const ServiceContent = ({title, service, thumbs, handleOpeningForm}) => {
 
      const renderService = (arrService) => {
           return arrService.map(item => {

@@ -127,6 +127,16 @@ const ContactForm = ({handleClosingForm}) => {
                               required
                          />
                          <input  
+                              className="form__link-input" 
+                              onClick={() => checkInvalidInputs()}
+                              type="text"  
+                              name="branch" 
+                              placeholder="Вашa ніша" 
+                              tabIndex="0"
+                              autoComplete="on" 
+                              required
+                         />
+                         <input 
                               className="form__link-input"
                               onClick={() => checkInvalidInputs()}
                               type="text" 

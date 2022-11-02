@@ -18,15 +18,18 @@ const FeedbalckSlider = ({thumbsArr, handleClick }) => {
      const transitions = useTransition(imgPath, {
           from: {
                opacity: 0,
-               transform: `translate3d(${dir === 1 ? -100 : 100}%,-50%, 0) scale(0.5)`,
+               position: "absolute",
+               transform: `translate3d(${dir === 1 ? -100 : 100}%, 0%, 0) scale(0.5)`,
              },
              enter: {
+               position: "relative",
                opacity: 1,
-               transform: "translate3d(-50%,-50%,0) scale(1)"
+               transform: `translate3d(0, 0, 0) scale(1)`,
              },
              leave: {
                opacity: 0,
-               transform: `translate3d(${dir === 1 ? 100 : -100}%,0,0) scale(0.5)`,
+               transform: `translate3d(${dir === 1 ? -100 : 100}%, 0%, 0) scale(0.5)`,
+               position: "absolute"
              },
              delay: 200,
              config:{duration: 300}
@@ -71,12 +74,6 @@ const FeedbalckSlider = ({thumbsArr, handleClick }) => {
                                         className="swiper__slide slide"
                                    >
                                         <img src={path} alt="слайдер " />
-                                        <button 
-                                             className="swiper__close"
-                                             onClick={(e) => handleClick(e)}
-                                        >
-                                             &times;
-                                        </button>
                                    </animated.div>
                               )
                          })
@@ -98,6 +95,12 @@ const FeedbalckSlider = ({thumbsArr, handleClick }) => {
                               renderPaginationDots(thumbsArr)
                          }
                     </div>
+                    <button 
+                         className="swiper__close"
+                         onClick={(e) => handleClick(e)}
+                    >
+                         &times;
+                    </button>
                </div>
           </div>
      );

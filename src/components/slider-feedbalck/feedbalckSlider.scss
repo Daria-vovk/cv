@@ -10,11 +10,19 @@
      overflow: auto;
 
      &__wrapper {   
-          position: relative;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
           width: 100%;
-          height: 100%;
-          margin: 0 auto;
+          padding: 50px 0;
           overflow: hidden;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+
 
           @media (max-width: 520px) {
                padding: 40px 5px ;
@@ -22,11 +30,10 @@
      }
 
      &__slide {
-          position: absolute;
-          left: 50%;
-          top: 50%;
+          position: relative;
           width: 60%;
-          overflow: hidden;
+          height: 100%;
+          // overflow: hidden;
 
           img {
                width: 100%;
@@ -60,8 +67,8 @@
                bottom: 50%;
 
                @media (max-width: 520px) {
-                    left: calc(50% - 80px);
-                    bottom: 40px;
+                    left: calc(50% - 120px);
+                    bottom: 10px;
                };
           }
 
@@ -87,8 +94,8 @@
           transform: rotate(-90deg) translate(-50%);
 
           @media (max-width: 520px) {
-               bottom: 40px;
-               right: calc(50% - 80px);
+               bottom: 10px;
+               right: calc(50% - 120px);
           };
 
      }
@@ -96,14 +103,25 @@
      &__close {
           position: absolute;
           right: 10px;
-          top: 0px;
+          top: -10px;
           width: 35px;
           // line-height: 35px;
           font-size: 32px;
-          color:#000;
+          color: #fff;
           transition: all 0.3s ease 0s;
           background-color: transparent;
           border-radius: 50%;
+
+          @media (min-width: 1188px) {
+               right: 200px;
+               top: -15px;
+          };
+
+          @media (min-width: 970px) {
+               z-index: 131;
+               right: 100px;
+               top: -15px;
+          };
 
           @media (min-width: 750px) {
                font-size: 42px;
@@ -132,7 +150,7 @@
 
      &__pagination-block {
           position: absolute;
-          bottom: 10px;
+          bottom: 5px;
           left: 50%;
           transform: translate(-50%);
           display: flex;
