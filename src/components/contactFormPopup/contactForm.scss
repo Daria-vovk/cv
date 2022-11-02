@@ -42,6 +42,29 @@
           flex: 1 1 100%;
           // overflow: hidden;
           color: #FBFF22;
+          position: relative;
+
+          span {
+               position: absolute;
+               top: 33px;
+               font-size: 10px;
+               color: red;
+          }
+
+          &::before,
+          &::after {
+               content: "*";
+               font-size: 15px;
+               display: inline-block;
+               position: absolute;
+               top: 0;
+               left: -25px;
+               color: #FBFF22;
+          }
+
+          &::after {
+               top: 45px;
+          }
           
      }
 
@@ -51,7 +74,7 @@
           // height: 12%;
           padding: .5em;
           border: 1px solid #999;
-          color: #FBFF22;
+          color: #999;
           border-radius:5px;
           background-color: inherit;
           font-weight: 400;
@@ -67,6 +90,7 @@
 
           &:focus {
                border: 1px solid #FBFF22;
+               color: #FBFF22;
                transform: scale(1.11);
           }
      }
@@ -94,6 +118,18 @@
                transform: scale(1.11);
           }
      }
+
+     &__invalidNameInput {
+          border: 1px solid red !important;
+          color: red !important;
+     }
+
+     &__validNameInput {
+          border: 1px solid green !important;
+          color: green !important;
+          transform: scale(1.1);
+     }
+
      &__close {
           color:#fff;
           font-size: 32px;
@@ -103,15 +139,24 @@
      }
 
      &__name-input {
+          position: relative;
+         
      }
 
      &__phone-input {
      }
 
      &__link-input {
+          &:valid {
+               border: 1px solid green;
+               color: green;
+               transform: scale(1.1);
+          }
      }
 
      &__btn-input {
      }
+
+     
 }
      

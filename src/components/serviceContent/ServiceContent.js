@@ -7,7 +7,7 @@ import { Button, SliderService } from '../transponder';
 import "./serviceContent.scss";
 
 
-const ServiceContent = ({title, service, thumbs, handleOpeningForm}) => {
+const ServiceContent = ({title, service, thumbs, handleOpeningForm, styleProps}) => {
 
      const renderService = (arrService) => {
           return arrService.map(item => {
@@ -16,10 +16,12 @@ const ServiceContent = ({title, service, thumbs, handleOpeningForm}) => {
                )
           });
      }
+     
 
      return (
           <>
-               <div className='content-block__first-col'>
+               <div
+                    className='content-block__first-col'>
                     <div className="content-block__wrapper">
                          <h4 className="content-block__title">{title}</h4>
                          <ul className="content-block__list">
@@ -33,8 +35,7 @@ const ServiceContent = ({title, service, thumbs, handleOpeningForm}) => {
                <div className='content-block__second-col'>
                     <h4 className="content-block__title">Відгуки</h4>
                     <div className="content-block__btn-block">
-                         
-                    </div>
+               </div>
                     <SliderService thumbs={thumbs}/>
                </div>
           </>

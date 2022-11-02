@@ -26,7 +26,7 @@ const Socials = () => {
                });
 
                return (
-                    <li className={classSocial} key={uuidv4()} datakey={type}>
+                    <li className={classSocial} key={uuidv4()} datakey={type} datakind={name}>
                          <a href={link}></a>
                     </li> 
                );

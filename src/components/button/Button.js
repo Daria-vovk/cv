@@ -2,7 +2,20 @@ import classNames from "classnames";
 
 import "./button.scss";
 
-const Button = ({ children, isMenu, isYellow, isWhiteBorder, pseuElem, isCarts, yellBorder,isShowMore, handleClick, handleOpeningForm, handleAddCart }) => {
+const Button = ({ 
+          children,
+          isMenu,
+          isYellow,
+          isWhiteBorder,
+          pseuElem,
+          isCarts,
+          yellBorder,
+          isShowMore,
+          handleClick, 
+          handleOpeningForm, 
+          handleAddCart,
+          disabled
+     }) => {
 
      const customization = classNames("button btn-default", {
           "btn-yellow": isYellow,
@@ -27,6 +40,7 @@ const Button = ({ children, isMenu, isYellow, isWhiteBorder, pseuElem, isCarts, 
                     } 
                     
                } }
+               disabled={disabled}
           >
                {children}
           </button>

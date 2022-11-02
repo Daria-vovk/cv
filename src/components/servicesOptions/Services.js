@@ -1,15 +1,15 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { v4 as uuidv4 } from 'uuid';
+import { useTransition, animated, config } from "react-spring";
 
-import { ServiceContent } from "../transponder";
+import { Button, SliderService } from "../transponder";
 
 import "./services.scss";
 
 const Services = ({handleOpeningForm}) => {
      const [serviceContent, setServiceContent] = useState("target");
-
-     const serviceContentData = [
+     const [serviceContentData, setServiceContentData] = useState([
           {  
                title: "Таргетована реклама",
                service: ["Налаштування реклами",
@@ -23,7 +23,17 @@ const Services = ({handleOpeningForm}) => {
                type: "consult",
                thumbs: ["consult1.jpg", "consult2.jpg", "consult3.jpg"]
           }
-     ];
+     ])
+
+     const transitions = useTransition(serviceContent, {
+          from: {opacity: 0,transform: "translateY(-50%) scale(0.4)"},
+          enter: {opacity: 1, flex: "0 0 400px" , transform: "translateY(0%) scale(1)"},
+          leave: { opacity: 0, transform: "translateY(50%) scale(0.4)",  position: "absolute"},
+          reverse: serviceContent,
+          config: {
+               duration: 500
+          }
+     });
 
      const classContentBlock = classNames("services__content-block content-block", {
           "content-block_target" : serviceContent === "target",
@@ -45,7 +55,7 @@ const Services = ({handleOpeningForm}) => {
                          <li 
                               className={itemClass}
                               key={uuidv4()}
-                              onClick={setFn}
+                              onClick={() => setFn()}
                          >
                               {title}
                               <span></span>
@@ -63,15 +73,79 @@ const Services = ({handleOpeningForm}) => {
                          renderItemList(serviceContentData)
                     }
                </ul>
-               <div className={classContentBlock}>
+               <>
                     {
-                         serviceContent === "target" 
-                              ? <ServiceContent {...serviceContentData.find(item => item.type === "target")}  handleOpeningForm={handleOpeningForm}/>  
-                              : <ServiceContent {...serviceContentData.find(item => item.type === "consult")} handleOpeningForm={handleOpeningForm}/>
+                         transitions((style, serviceContent) => (
+                              serviceContent === "target" ? (<animated.div
+                                             style={{
+                                                  ...style
+                                             }}
+                                             className={classContentBlock}>
+                                             <div
+                                                  className='content-block__first-col'>
+                                                  <div className="content-block__wrapper">
+                                                       <h4 className="content-block__title">{serviceContentData.find(item => item.type === "target").title}</h4>
+                                                       <ul className="content-block__list">
+                                                            {
+                                                                 serviceContentData.find(item => item.type === "target").service.map((item) => {
+                                                                      return (
+                                                                           <li className="content-block__item" key={uuidv4()}>{item}</li>
+                                                                      )
+                                                                 })
+                                                            }
+                                                       </ul> 
+                                                  </div>
+                                                  <Button children={"Напиcати"} handleOpeningForm={handleOpeningForm} yellBorder/>
+                                             </div>
+                                             <div 
+                                                  className='content-block__second-col'
+                                             >
+                                                  <h4 className="content-block__title">Відгуки</h4>
+                                                  <div className="content-block__btn-block">
+                                             </div>
+                                                  <SliderService thumbs={serviceContentData.find(item => item.type === "target").thumbs}/>
+                                             </div>
+                                        </animated.div>)
+
+                                   : (<animated.div 
+                                        className={classContentBlock}
+                                        style={{
+                                             ...style
+                                        }}
+                                   >
+                                        <div className='content-block__first-col'>
+                                             <div className="content-block__wrapper">
+                                                  <h4 className="content-block__title">{serviceContentData.find(item => item.type === "consult").title}</h4>
+                                                  <ul className="content-block__list">
+                                                       {
+                                                            serviceContentData.find(item => item.type === "consult").service.map((item) => {
+                                                                 return (
+                                                                      <li className="content-block__item" key={uuidv4()}>{item}</li>
+                                                                 )
+                                                            })
+                                                       }
+                                                  </ul> 
+                                             </div>
+                                             <Button children={"Напиcати"} handleOpeningForm={handleOpeningForm} yellBorder/>
+                                        </div>
+                                        <div 
+                                             className='content-block__second-col'>
+                                             <h4 className="content-block__title">Відгуки</h4>
+                                             <div className="content-block__btn-block">
+                                        </div>
+                                             <SliderService thumbs={serviceContentData.find(item => item.type === "consult").thumbs}/>
+                                        </div>
+                                   </animated.div>
+                                   )    
+                              )
+                         )
                     }
-               </div>
+               </>
           </div>
      );
 };
 
 export default Services ;
+
+// boolean ? <AnimatedServiceContent opacity={opacity} {...serviceContentData.find(item => item.type === "target")}  handleOpeningForm={handleOpeningForm}/>
+// : <AnimatedServiceContent opacity={opacity} {...serviceContentData.find(item => item.type === "consult")} handleOpeningForm={handleOpeningForm}/>

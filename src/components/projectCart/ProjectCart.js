@@ -1,10 +1,11 @@
 import { useState } from "react";
+
 import Button from "../button/Button";
 import FeedbalckSlider from "../slider-feedbalck/FeedbalckSlider";
 
 import "./projectCart.scss";
 
-const ProjectCart = ({ name, thumbs }) => {
+const ProjectCart = ({ name, thumbs, nodeRef }) => {
      const [isSlider, setIsSlider] = useState(false);
 
      const renderName = (name) => {
@@ -34,10 +35,11 @@ const ProjectCart = ({ name, thumbs }) => {
      const initImagePath = Array.isArray(thumbs) ? thumbs[0] : thumbs
 
      return (
-          <>      
+          <>
                <div 
                     className="project__block"
                     onClick={(e) => handleOpeningSlider(e)}
+                    ref={nodeRef}
                >
                     <div className="project__image-block">
                          <img src={process.env.PUBLIC_URL + `/${initImagePath}`} alt="Фото проекта" />
@@ -59,7 +61,7 @@ const ProjectCart = ({ name, thumbs }) => {
                {
                     isSlider ? <FeedbalckSlider title={name} thumbsArr={thumbs} handleClick={(e) => handleClosingSlider(e)}/> : null
                }
-          </>
+               </>
      );
 };
 

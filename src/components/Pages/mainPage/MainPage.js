@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, createRef, useRef } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import {Button, ContactForm, Description, Experience, Feedbalck, GiftPopup, ProjectCart, Services} from "../../transponder"
 
 import "./mainPage.scss";
@@ -11,25 +12,29 @@ const MainPage = () => {
                name: "FoodRuns Mobile Apps",
                id: 0,
                thumbs: ["clos.jpg", "1.jpg", "2.jpg"],
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur sequi pariatur ea deleniti cumque excepturi quidem provident reprehenderit maxime ipsa!"
+               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur sequi pariatur ea deleniti cumque excepturi quidem provident reprehenderit maxime ipsa!",
+               nodeRef: createRef(null)
           },
           {
                name: "Estate Landing Page",
                id: 1,
                thumbs: "2.jpg",
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati."
+               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati.",
+               nodeRef: createRef(null)
           },
           {
                name: "Estate Landing Page",
                id: 2,
                thumbs: "3.jpg",
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati."
+               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati.",
+               nodeRef: createRef(null)
           },
           {
                name: "Sneakers E-commerce Mobile App",
                id: 3,
                thumbs: "4.jpg",
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati."
+               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati.",
+               nodeRef: createRef(null)
           }
      ]);
      const [isOpenGift, setIsOpenGift] = useState(false);
@@ -39,12 +44,6 @@ const MainPage = () => {
      const [currentSrolledHeight, setCurrentSrolledHeight] = useState(0);
      const [isDeletedCovering, setIsDeletedCovering] = useState(false)
      const coverBlockRef = useRef();
-
-     const renderProject = (projArr) => {
-          return projArr.map((item, index) => {
-               return <ProjectCart {...item} num={index} key={item.id} />
-          });
-     }
 
      const handleOpenGiftModal = () => {
           setShowIconGift(false);
@@ -71,7 +70,8 @@ const MainPage = () => {
                name: "FoodRuns Mobile Apps",
                id: 0,
                thumbs: ["clos.jpg", "1.jpg", "2.jpg"],
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur sequi pariatur ea deleniti cumque excepturi quidem provident reprehenderit maxime ipsa!"
+               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur sequi pariatur ea deleniti cumque excepturi quidem provident reprehenderit maxime ipsa!",
+               nodeRef: createRef(null)
           };
 
           setProjectCarts([...projectCarts, obj]);
@@ -113,9 +113,20 @@ const MainPage = () => {
                </h6>
                <div className="main-page__projects projects-block">
                     <div className="projects-block__container _container-project">
-                         {
-                              renderProject(projectCarts)
+                         <TransitionGroup component={null}>
+                         {    
+                              projectCarts.map((item, index) => (
+                                   <CSSTransition
+                                        key={index}
+                                        timeout={750}
+                                        classNames="css-wrapper"
+                                        nodeRef={item.nodeRef}
+                                   >
+                                        <ProjectCart {...item} num={index} key={item.id} />
+                                   </CSSTransition>
+                              ))
                          }
+                         </TransitionGroup>
                          <div className="projects-block__actions-block">
                               <Button children="Побачити більше" handleAddCart={() => handleAddCart()} isShowMore isYellow/>
                               
@@ -146,7 +157,7 @@ const MainPage = () => {
                          </div>
                     </div>
                     {
-                         isOpenGift ? <GiftPopup handleClosingPopup={() => setIsOpenGift(!isOpenGift)}/> 
+                         isOpenGift ? <GiftPopup showIconGift={showIconGift} isOpenGift={isOpenGift} handleClosingPopup={() => setIsOpenGift(!isOpenGift)}/> 
                                    : showIconGift && !wasOpenGift ? <img 
                                                                       src={gift} 
                                                                       alt="Іконка подарунку" 
