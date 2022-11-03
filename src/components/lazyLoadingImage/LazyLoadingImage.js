@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import classNames from "classnames";
 
+
 import "./lazyLoadingImage.scss";
 
-const LazyLoadingImage = ({src, alt, loadFn}) => {
+const LazyLoadingImage = ({src, alt}) => {
 
      const [isLoadedImage, setIsLoadedImage] = useState(false);
      const imgRef = useRef();
@@ -15,7 +16,8 @@ const LazyLoadingImage = ({src, alt, loadFn}) => {
      }, [])
      
      const classOfImage = classNames( "container-image", {
-          "image-loaded": isLoadedImage
+          "image-loaded": isLoadedImage,
+          "image-daria": alt === "Дарія"
      })
      return (
           <div className={classOfImage}>
