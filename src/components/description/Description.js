@@ -4,7 +4,7 @@ import mainPhoto from "../../assets/mainPage/mainPhoto.jpg";
 import "./description.scss"
 import { LazyLoadingImage } from "../transponder";
 
-const Description = () => {
+const Description = ({setIsOpenForm}) => {
      return (
           <div className="main-page__row">
                <div className="main-page__left-side">
@@ -16,7 +16,7 @@ const Description = () => {
 
                     </p>
                     <div className="main-page__btn-section">
-                         <Button isYellow pseuElem>Напиши мені</Button>
+                         <Button handleOpeningForm={setIsOpenForm} isYellow pseuElem>Напиши мені</Button>
                     </div>
                </div>
                <div className="main-page__right-side">

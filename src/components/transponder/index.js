@@ -11,3 +11,5 @@ export {default as Experience} from "../experience-block/Experience";
 export {default as ContentSceleton} from "../content-loader/ContentSceleton";
 export {default as LazyLoadingImage} from "../lazyLoadingImage/LazyLoadingImage";
 export {default as AlertModal} from "../alert-modal/AlertModal";
+export {default as MenuList} from "../menu-list/MenuList";
+

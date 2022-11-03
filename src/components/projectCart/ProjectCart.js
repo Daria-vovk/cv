@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Button from "../button/Button";
+import LazyLoadingImage from "../lazyLoadingImage/LazyLoadingImage";
 import FeedbalckSlider from "../slider-feedbalck/FeedbalckSlider";
 
 import "./projectCart.scss";
@@ -42,7 +43,7 @@ const ProjectCart = ({ name, thumbs, nodeRef }) => {
                     ref={nodeRef}
                >
                     <div className="project__image-block">
-                         <img src={process.env.PUBLIC_URL + `/${initImagePath}`} alt="Фото проекта" />
+                         <LazyLoadingImage src={process.env.PUBLIC_URL + `/${initImagePath}`} alt="Фото проекта" />
                     </div>
                     <div className="project__text-block">
                          <h3 className="project__text-block-title">

@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useTransition, animated } from 'react-spring'
 
 import "./feedbalckSlider.scss"
+import LazyLoadingImage from "../lazyLoadingImage/LazyLoadingImage";
 
 const FeedbalckSlider = ({thumbsArr, handleClick }) => {
 
@@ -73,7 +74,7 @@ const FeedbalckSlider = ({thumbsArr, handleClick }) => {
                                         style={{...style}}
                                         className="swiper__slide slide"
                                    >
-                                        <img src={path} alt="слайдер " />
+                                        <LazyLoadingImage src={path} alt="слайдер " />
                                    </animated.div>
                               )
                          })

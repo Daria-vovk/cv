@@ -20,7 +20,7 @@ const ContactForm = ({handleClosingForm}) => {
      const handleNameValidate = (e) => {
           const regExp =  /^(([a-zA-Z' -]{1,80})|([а-яА-ЯЁёІіЇїҐґЄє' - \s]{1,80}))$/u;
           
-          if ( !regExp.test(e.target.value)) {
+          if ( !regExp.test(e.target.value) || validString.length < 3) {
                setValidString(e.target.value)
                setIsInvalidName(true)
               return;
@@ -133,7 +133,7 @@ const ContactForm = ({handleClosingForm}) => {
                               name="branch" 
                               placeholder="Вашa ніша" 
                               tabIndex="0"
-                              autoComplete="on" 
+                              autoComplete="on"
                               required
                          />
                          <input 

@@ -47,19 +47,19 @@
                          left: 30px;
                     };
 
-                    @media (max-width: 430px) {
+                    @media (max-width: 602px) {
                          font-size: 17px;
                   };
                }
 
                &:nth-child(even) {
                     top: 10px;
-                    left: 60%;
+                    right: 0;
                     @media (min-width:950px) {
-                         left: 70% !important;
+                         left: 60%;
                     };
 
-                    @media (max-width: 430px) {
+                    @media (max-width: 602px) {
                          font-size: 17px;
                   };
 

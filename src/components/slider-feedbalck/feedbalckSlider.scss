@@ -15,6 +15,7 @@
           top: 50%;
           transform: translate(-50%, -50%);
           width: 100%;
+          max-height: 482.31px;
           padding: 50px 0;
           overflow: hidden;
 
@@ -26,12 +27,13 @@
 
           @media (max-width: 520px) {
                padding: 40px 5px ;
+               max-height: 305.54px;
           };
      }
 
      &__slide {
           position: relative;
-          width: 60%;
+ 
           height: 100%;
           // overflow: hidden;
 
@@ -39,9 +41,9 @@
                width: 100%;
           }
 
-          // @media (min-width: 505px) {
-          //      width: 60%;
-          // };
+          @media (min-width: 440px) {
+               width: 60%;
+          };
 
           @media (max-width: 970px) {
                width: 90%;

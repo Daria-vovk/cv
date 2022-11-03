@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useTransition, animated } from "react-spring";
 
+import LazyLoadingImage from "../lazyLoadingImage/LazyLoadingImage";
+
 import "./sliderServices.scss";
 
 const SliderService = ({thumbs}) => {
@@ -44,9 +46,12 @@ const SliderService = ({thumbs}) => {
                     <div className="slider__slide slide">
                     {
                          transitions((style, path) => {
-                              return ( 
-                                   <animated.img src={path} alt="Фото комметария" style={{...style}}  />
-                              )
+                              return (
+                                   <animated.div
+                                        className="slider__wrapper-div"
+                                        style={{...style}}>
+                                   <LazyLoadingImage src={path}/>
+                                   </animated.div>)
                          })
                     }
                     </div>

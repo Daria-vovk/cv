@@ -102,6 +102,7 @@
      &__btn-section {
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 10px 30px;
 
           @media (max-width:895px) {

@@ -3,8 +3,27 @@
      padding: 20px 10px;
      box-sizing: border-box;
      &__wrapper {
-          width: 100%;
           position: relative;
+          width: 100%;
+          height: 100%;
+          padding-bottom: 40px;
+          overflow: hidden;
+     }
+
+     &__wrapper-div {
+          position: absolute;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          border-radius: 15px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @media (min-width: 450px) {
+               padding: 20px;
+          };
      }
 
      &__slide {
@@ -17,12 +36,11 @@
           align-items: center;
           justify-content: center;
 
-          img {
-               width: 100%;
-               max-height: 100%;
-               object-fit: contain;
-               border-radius: 20px;
-          }
+          // img {
+          //      width: 100%;
+          //      object-fit: contain;
+          //      border-radius: 20px;
+          // }
 
           @media (min-width: 600px) {
                height: 360px;
@@ -32,7 +50,7 @@
 
      &__button-prev {
           position: absolute;
-          bottom: -30px;
+          bottom: 0px;
           left: 50px;
           font-size: 52px;
           transition: all 0.3s ease 0s;

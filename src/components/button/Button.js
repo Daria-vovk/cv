@@ -14,7 +14,9 @@ const Button = ({
           handleClick, 
           handleOpeningForm, 
           handleAddCart,
-          disabled
+          disabled,
+          section,
+          handleBurger
      }) => {
 
      const customization = classNames("button btn-default", {
@@ -31,10 +33,24 @@ const Button = ({
           <button 
                className={customization}
                onClick={(e) => {
-                    if (e.target.classList.contains("btn-yell-border")) {
-                         handleOpeningForm()
+
+                    if (e.target.classList.contains("btn-yell-border") || e.target.classList.contains("btn-pseudo")) {
+                         handleOpeningForm(true)
+                         document.body.classList.add("_lock");
                     } else if (e.target.classList.contains("btn-show-more")) {
                          handleAddCart()
+                    } else if (e.target.classList.contains("right-burger__pages-item")) {
+                         e.stopPropagation();
+
+                         const {isBurger, setIsBurger} = handleBurger;
+                         
+                         document.querySelector(section).scrollIntoView({behavior: "smooth"});
+
+                         if (isBurger) {
+                              setIsBurger(!isBurger);
+                              document.body.classList.remove("_lock");
+                         }
+                         
                     } else {
                          handleClick(e)
                     } 

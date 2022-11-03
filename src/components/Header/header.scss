@@ -113,13 +113,19 @@
 
      &__body {
           @media (max-width: 950px) {
-               display: none;
+               position: fixed;
+               left: 0;
+               top: 90px;
+               display: block;
+               width: 100%;
+               height: calc(100vh - 90px);
+               z-index: 6;
+               overflow: hidden;
           }
      }
 
      &__menu {
           @extend .header__left-side1;
-          // flex-wrap: wrap;
           margin: 0;
           z-index: 6;
           height: 100%;
@@ -133,13 +139,27 @@
      &__pages-item {
           font-family: "Roboto";
           text-transform: uppercase;
-          &:hover {
-               border: 2px solid #FBFF22;
-               color: #FBFF22;
-               transform:translateY(0);
+          transition: all .3s ease 0s;
+
+          @media (min-width: 850px) {
+               &:hover {
+                    border: 2px solid #FBFF22;
+                    color: #FBFF22;
+                    transform:translateY(0);
+               }
+          }
+
+          @media (max-width: 750px) {
+               &:active {
+                    border: 2px solid #FBFF22;
+                    color: #FBFF22;
+                    transform:translateY(0);
+               }
           }
 
           @media (max-width: 950px) {
+               border: 2px solid #fff;
+               border-radius: 20px;
                &:not(:last-child) {
                     margin-bottom: 1em;
                }
@@ -166,6 +186,7 @@
                     width: 100%;
                     height: 3px;
                     background: #FBFF22;
+                    transition: all 0.3s ease 0s;
 
                     &:first-child {
                          top: 0;
@@ -174,12 +195,25 @@
                     &:last-child {
                          top: auto;
                          bottom: 0;
+
                     }
 
                }
 
-               @media (min-width: 750px) {
+               @media (min-width: 950px) {
                     &:hover {
+                         span {
+                              transform: scale(1.2);
+                         }
+     
+                         span:not(:nth-child(2)) {
+                              box-shadow: 3px -2px 10px 2px #FBFF22;
+                         }
+                    }
+               }
+
+               @media (max-width: 750px) {
+                    &:active {
                          span {
                               transform: scale(1.2);
                          }
@@ -198,28 +232,23 @@
 
                     &__icon {
                          z-index: 7;
-                         span {
+                         
+                         span:nth-child(2) {
                               transform: scale(0);
                          }
 
                          span:first-child {
-                              transform: translate(0, 10px) rotate(-45deg) ;
+                              transform: translate(0, 10px) rotate(-45deg) scale(1);
                          }
 
-                         span:last-child {
-                              transform: translateY(-14.5px) rotate(45deg);
+                         span {
+                              transform: translate(0, -2px) rotate(45deg) scale(1);
                          }
                     }
 
                     &__body {
-                         position: fixed;
-                         left: 0;
-                         top: 90px;
-                         display: block;
-                         width: 100%;
-                         height: calc(100vh - 90px);
-                         z-index: 6;
-                         overflow: hidden;
+                         opacity: 0;
+                         transition: all 1.3s ease 0s;
                     }
 
                     &__menu {
@@ -229,14 +258,17 @@
                          box-sizing: border-box;
                          left: 0;
                          top: 0;
-                         font-size: 32px;
                          overflow: auto;
                          background-color: #000;
                          text-align: center;
                          display: flex;
                          flex-direction: column;
-                         justify-content: start;
+                         justify-content: center;
 
+                         button {
+                              font-size: 32px;
+                              width: 300px;
+                         }
                     }
                }
           }

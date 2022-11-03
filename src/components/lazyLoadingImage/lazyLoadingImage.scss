@@ -1,4 +1,5 @@
 .container-image {
+     width: 100%;
 
      &::before {
           content: '';
@@ -13,6 +14,22 @@
      }
      
      &.image-loaded {
+          box-sizing: border-box;
+          height: 100%;
+          width: 100%;
+
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+               width: 100%;
+               max-height: 100%;
+               border-radius: 20px;
+               object-fit: contain;
+          }
+
           &::before {
                display: none;     
           }

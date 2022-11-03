@@ -34,13 +34,16 @@
           align-items: center;
           border: 1px solid #FBFF22;
           border-radius: 15px;
-          padding: 15px 10px;
           box-shadow: inset -12px 12px 400px #FBFF22;
           transition: box-shadow 1.3s ease 0s;
 
           &:hover {
                box-shadow: inset -12px 12px 102px #FBFF22;
           }
+
+          @media (min-width: 450px) {
+               padding: 15px 10px;
+          };
      }
 
      &__second-col {
