@@ -27,7 +27,6 @@
      &__central {
           display: inline-block;
           position: relative;
-          flex: 0 1 250px;
           height: 100%;
           font-size: 12px;
           line-height: 1.5em;
@@ -41,10 +40,6 @@
                top: 0;
                left: 0;
                display: inline-block;
-
-               @media (max-width: 565px) {
-                    display: none;
-               };
           }
 
           @media (max-width: 810px) {

@@ -103,6 +103,7 @@
      }
 
      &__btn-section {
+          margin-top: 60px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -167,9 +168,9 @@
 
                }
 
-               @media (max-width:420px) {
-                    display: none;
-               }
+               // @media (max-width:420px) {
+               //      display: none;
+               // }
 
                @keyframes shadowIn {
                     from {

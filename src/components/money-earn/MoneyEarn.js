@@ -85,7 +85,8 @@ class MoneyEarn extends Component {
 
           return (
                <div className="money-block">
-                    <span className="money-block__thousands">$ {thousands} </span>
+                    <span className="money-block__text" >Клієнти заробили разом зі мною: </span>
+                    <span className="money-block__thousands">$ {thousands} </span> 
                     <span className="money-block__hundreds">{this.addZeroes(hundreds)}.</span>
                     <span className="money-block__percentage">{this.addZeroes(percentage)}</span>
                </div>
