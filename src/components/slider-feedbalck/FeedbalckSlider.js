@@ -20,7 +20,7 @@ const FeedbalckSlider = ({thumbsArr, handleClick }) => {
           from: {
                opacity: 0,
                position: "absolute",
-               transform: `translate3d(${dir === 1 ? -100 : 100}%, 0%, 0) scale(0.5)`,
+               transform: `translate3d(${dir === 1 ? 100 : -100}%, 0%, 0) scale(0.5)`,
              },
              enter: {
                position: "relative",
@@ -29,7 +29,7 @@ const FeedbalckSlider = ({thumbsArr, handleClick }) => {
              },
              leave: {
                opacity: 0,
-               transform: `translate3d(${dir === 1 ? -100 : 100}%, 0%, 0) scale(0.5)`,
+               transform: `translate3d(${dir === 1 ? 100 : -100}%, 0%, 0) scale(0.5)`,
                position: "absolute"
              },
              delay: 200,
