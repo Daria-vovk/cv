@@ -31,11 +31,11 @@ const ServiceContent = ({title, service, thumbs, handleOpeningForm}) => {
                          </ul> 
                     </div>
                     <Button children={"Напиcати"} handleOpeningForm={handleOpeningForm} yellBorder/>
-               </div>
-               <div className='content-block__second-col'>
-                    <h4 className="content-block__title">Відгуки</h4>
-                    <div className="content-block__btn-block">
-               </div>
+                    </div>
+                    <div className='content-block__second-col'>
+                         <h4 className="content-block__title">Відгуки</h4>
+                         <div className="content-block__btn-block">
+                    </div>
                     <SliderService thumbs={thumbs}/>
                </div>
           </>

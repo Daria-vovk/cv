@@ -1,7 +1,7 @@
 .slider {
      width: 100%;
-     padding: 20px 10px;
      box-sizing: border-box;
+     
      &__wrapper {
           position: relative;
           width: 100%;
@@ -75,5 +75,9 @@
                border-color: transparent transparent transparent #848483;
           }
      }
+
+     @media (min-width: 630px) {
+          padding: 20px 10px;
+     };
 }
 

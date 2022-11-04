@@ -1,0 +1,32 @@
+.money-block {
+     position: absolute;
+     right: 30px;
+     top: -10px;
+     font-size: 15px;
+     color: #FBFF22;
+
+     &__thousands {
+     }
+
+     &__hundreds {
+     }
+
+     &__percentage {
+          color: #999;
+     }
+
+     @media (min-width: 1121px) {
+          right: 30px;
+          top: -100px;
+     };
+
+     @media (max-width: 950px) {
+          left: 0;
+          top: -90px;
+     };
+
+     
+     @media (max-width: 695px) {
+          display: none;
+     };
+}

@@ -48,12 +48,12 @@
 
      &__second-col {
           @extend .content-block__first-col;
-          flex: 0 1 400px;
+          flex: 0 1 500px;
           height: 500px;
           box-shadow: inset -12px 12px 400px #848483;
 
           @media (max-width: 600px) {
-               height: 370px;
+               height: 330px;
           };
      }
 

@@ -1,8 +1,10 @@
 import Button from "../button/Button";
+import { LazyLoadingImage } from "../transponder";
 
 import mainPhoto from "../../assets/mainPage/mainPhoto.jpg";
+
 import "./description.scss"
-import { LazyLoadingImage } from "../transponder";
+
 
 const Description = ({setIsOpenForm}) => {
      return (

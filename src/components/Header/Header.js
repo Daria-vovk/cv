@@ -18,7 +18,7 @@ const Header = () => {
      const transitions = useTransition(isBurger, {
 
           from: {
-                    opacity: 0,
+                    opacity: 1,
                     transform: "translate(100%, 0)",
                },
           enter: {
@@ -26,11 +26,10 @@ const Header = () => {
                     transform: "translate(0, 0)",
                },
           leave: {
-                    opacity: 0,
                     transform: "rotate(90deg) translate(-100%, -100%)",
                },
 
-          config:{duration: 300},
+          config:{duration: 200},
           delay: 0
      });
      
@@ -67,8 +66,8 @@ const Header = () => {
      const animatedBodyBurger = () => {
 
           return (
-               transitions((style, burgerOpen) => {
-                    return (
+               transitions((style, burgerOpen) => (
+                    burgerOpen && (
                          <animated.nav
                               style={style}
                               className="right-burger__body"
@@ -79,8 +78,8 @@ const Header = () => {
                                    <MenuList handleBurger={{isBurger, setIsBurger}}/>
                               </ul>
                          </animated.nav>       
-                    )                              
-               })
+                    )                           
+               ))
           )
      };
 

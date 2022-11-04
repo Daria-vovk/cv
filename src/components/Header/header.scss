@@ -140,8 +140,10 @@
           font-family: "Roboto";
           text-transform: uppercase;
           transition: all .3s ease 0s;
+          font-size: 16px;
 
-          @media (min-width: 850px) {
+          @media (min-width: 975px) {
+               font-size: 20px;
                &:hover {
                     border: 2px solid #FBFF22;
                     color: #FBFF22;
@@ -161,7 +163,7 @@
                border: 2px solid #fff;
                border-radius: 20px;
                &:not(:last-child) {
-                    margin-bottom: 1em;
+                    margin-bottom: 2em;
                }
           }
      }
@@ -266,8 +268,8 @@
                          justify-content: center;
 
                          button {
-                              font-size: 32px;
-                              width: 300px;
+                              font-size: 22px;
+                              width: 200px;
                          }
                     }
                }

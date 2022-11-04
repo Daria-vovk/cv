@@ -9,7 +9,7 @@ const MenuList = ({handleBurger}) => {
      const [pages, setPages] = useState([
           {
                name: "Головна",
-               section: ".main-page__left-side"
+               section: ".main-page"
           },
           {
                name: "Проекти",

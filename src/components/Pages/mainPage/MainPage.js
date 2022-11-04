@@ -1,6 +1,6 @@
 import { useState, useEffect, createRef, useRef } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import {Button, ContactForm, Description, Experience, Feedbalck, GiftPopup, ProjectCart, Services} from "../../transponder"
+import {Button, ContactForm, Description, Experience, Feedbalck, GiftPopup, MoneyEarn, ProjectCart, Services} from "../../transponder"
 
 import "./mainPage.scss";
 
@@ -103,7 +103,8 @@ const MainPage = () => {
      }, [])
 
      return (
-          <div className="main-page">  
+          <div className="main-page"> 
+               <MoneyEarn/>
                <Description setIsOpenForm={setIsOpenForm} />
                <h6 className="main-page__my-project-title">
                     <svg width="1232" height="144" viewBox="0 0 1232 144" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -69,6 +69,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-3. Реалізувати лазі лоадинг 
-6. Додати модалку швидкого зв'язку (іконка телефону, зправа вилазить форма з именем и телефоном та варіантом послуги яка цікавить)
-
+1. Реалізувати лазі лоадинг 
+2. Додати модалку швидкого зв'язку (іконка телефону, зправа вилазить форма з именем и телефоном та варіантом послуги яка цікавить)
+3. Добавить блок "Заработала клиентам так, что бы он в режиме реального времени увеличивался
