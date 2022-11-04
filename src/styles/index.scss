@@ -50,6 +50,7 @@ body {
      max-width: $maxWidthContainer + px;
      padding: 0 10px;
      margin: 0 auto;
+     overflow: hidden;
 }
 
 ._container-project {

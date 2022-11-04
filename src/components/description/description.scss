@@ -6,6 +6,10 @@
           @media (max-width: 1120px) {
                text-align: center;
           };
+
+          @media (max-width: 695px) {
+               margin-top: 50px;
+          };
      }
 
      &__title-greeting {
@@ -122,30 +126,37 @@
           span {
                display: inline-block;
                position: absolute;
-               top: 75px;
+               top: 35px;
                right: 60px;
                opacity: 0.6;
                width: 104px;
                height: 58px;
                background: url("../../assets/mainPage/pluses.svg") no-repeat center/contain;
 
-               @media (max-width:950px) {
-                    right: 0px;
-                    top: 0px;
+               @media (max-width:1120px) {
+                    right: -40px;
+                    top: -10px;
                }
           }
 
           @media (max-width:950px) {
                align-self: center;
           }
+          
+          @media (min-width: 430px) {
+               padding: 0 20px 0 0;
+          };
      }
 
      &__wrapper {
           position: relative;
           width: 500px;
           height: 500px;
-          margin: 0 0 0 auto;
-          text-align: center;
+
+          
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &::after {
                content: "";
@@ -159,24 +170,22 @@
                background-color: transparent;
                border: 2px solid #FBFF22;
                border-radius: 350px 300px;
-               box-shadow: inset 0 0 445px 145px #FBFF22;
+               box-shadow: inset 0 0 45px 15px #FBFF22;
                animation: shadowIn 5000ms ease-in-out infinite alternate;
 
                @media (max-width:1120px) {
-                    width: 350px;
-                    height: 350px;
+                    width: 390px;
+                    height: 390px;
+                    bottom: -30px;
+                    left: -20px;
                }
 
-               @media (max-width: 950px) {
-                    width: 300px;
-                    height: 300px;
-                    left: 50px;
-                    bottom: 50px;
+               @media (max-width: 430px) {
+                    width: 350px;
+                    height: 350px;
+                    bottom: -20px;
+                    left: -10px;
                };
-
-               // @media (max-width:420px) {
-               //      display: none;
-               // }
 
                @keyframes shadowIn {
                     from {
@@ -186,7 +195,7 @@
 
                     to {
                          transform: rotate(360deg);
-                         box-shadow: inset 0 0 15px 5px #FBFF22;
+                         box-shadow: inset 0 0 45px 15px #FBFF22;
                     }
                }
           }
@@ -196,28 +205,31 @@
                opacity: 0.6;
                display: inline-block;
                position: absolute;
-               bottom: 70px;
-               left: 40px;
+               bottom: 50px;
+               left: 20px;
                width: 104px;
                height: 30px;
                background: url("../../assets/mainPage/lines-right.svg") no-repeat center/contain;
 
-               @media (max-width:420px) {
+               @media (max-width: 1120px) {
                     left: 0px;
-                    bottom: 0px;
+                    bottom: -20px;
+               };
+
+               @media (max-width:420px) {
                     width: 74px;
                     height: 30px;
                }
           }
 
           @media (max-width:1120px) {
-               width: 400px;
-               height: 400px;
+               width: 350px;
+               height: 350px;
           }
 
-          @media (max-width:420px) {
-               width: 300px;
-               height: 300px;
+          @media (max-width:412px) {
+               width: 330px;
+               height: 330px;
           }
      }
 
@@ -236,30 +248,23 @@
           }
 
           .image-daria {
-               clip-path: circle(35% at 51% 50%);
+               clip-path: circle(46% at 50% 50%);
 
                img {
-                    display: inline-block;
-                    margin-top: 100px;
-                    object-fit: contain !important;
+                    display: inline-block;   
+                    object-fit: cover !important;
                }
           
           }
 
-               
-
-
-          @media (max-width:1120px) {
-               width: 400px;
+          @media (max-width: 1120px) {
+               width: 380px;
                height: 400px;
-
-          }
-
-          @media (max-width:420px) {
-               width: 280px;
-               height: 300px;
-
-          }
-
+          };  
+          
+          @media (max-width: 430px) {
+               width: 330px;
+               height: 350px;
+          };
      }
 }
