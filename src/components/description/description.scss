@@ -165,8 +165,14 @@
                @media (max-width:1120px) {
                     width: 350px;
                     height: 350px;
-
                }
+
+               @media (max-width: 950px) {
+                    width: 300px;
+                    height: 300px;
+                    left: 50px;
+                    bottom: 50px;
+               };
 
                // @media (max-width:420px) {
                //      display: none;
