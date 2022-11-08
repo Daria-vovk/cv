@@ -80,11 +80,11 @@ const ContactForm = ({handleClosingForm}) => {
           const form = e.currentTarget;
           let fD = new FormData(form)
           
-          const responseJSON = await fetch("/src/components/contactFormPopup/php/send-message-to-telegram.php", {
+          const responseJSON = await fetch("../../../php/send-message-to-telegram.php", {
                method: 'POST',
                body: fD
           });
-          
+
           console.log(responseJSON)          
          
      }
