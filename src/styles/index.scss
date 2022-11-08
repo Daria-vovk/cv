@@ -56,10 +56,10 @@ body {
 ._container-project {
      position: relative;
      overflow: hidden;
-     padding: 0 10px;
      margin: 0 auto;
 
      @media (min-width: 850px) {
+          padding: 0 10px;
           max-width: 79%;
      };
 }
@@ -100,11 +100,21 @@ body {
    .css-wrapper-enter-done {
      opacity: 1;
      margin-top:0px
-
    }
+
    .css-wrapper-exit {
      opacity: 1;
    }
 
+   .css-wrapper-exit-active {
+     opacity: 0;
+     margin-top: -120px;
+     transform: scale(.6);
+     transition: all 750ms;
+   }
+
+   .css-wrapper-exit-done {
+     display: none;
+   }
  
 //-<Основная сетка>==================================================================

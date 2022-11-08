@@ -102,6 +102,10 @@
      };
 }
 
+.btn-show-more {
+     text-transform: uppercase;
+}
+
 button:disabled {
      opacity: 0.4;
      cursor: not-allowed;

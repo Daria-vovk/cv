@@ -16,7 +16,7 @@ const MenuList = ({handleBurger}) => {
                section: ".main-page__my-project-title"
           },
           {
-               name: "Мої послуги",
+               name: "Мої кейси",
                section: ".services__title"
           },
           {

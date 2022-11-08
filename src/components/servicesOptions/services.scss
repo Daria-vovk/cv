@@ -1,14 +1,15 @@
 .services {
      width: 100%;
-     margin: 4em 0 3em 0;
+     margin: 150px 0 3em 0;
      
      
      &__title {
           position: relative;
           text-align: center;
           padding:0 0 10px 0;
-          font-size: 50px;
+          font-size: 60px;
           margin-bottom: 50px;
+          
 
           @media (max-width: 1185px) {
                &::after {
@@ -31,10 +32,11 @@
      }
 
      &__list {
-          margin-top: 1.5em;
+          position: relative;
+          margin-top: 90px;
           display: flex;
-          align-items: center;
-          justify-content: space-around;
+          align-items: auto;
+          justify-content: space-between;
           flex-wrap: wrap;
           gap: 30px;
 
@@ -46,14 +48,20 @@
      }
 
      &__item {
+          flex: 1 1 25%;
           position: relative;
           font-size: 32px;
           padding: 20px 35px 40px 35px;
           background-color: #7772722c;
           border-radius: 15px;
+          text-align: center;
           opacity: .4;
           cursor: pointer;
           transition: all 0.3s ease 0s;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
           
           &:hover {
                opacity: 1;

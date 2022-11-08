@@ -10,14 +10,11 @@ const Footer = () => {
      return (
           <footer className="footer">
                <div className="footer__container _container">
-                    <div className="footer__central">
-                         <MoneyEarn/>
-                    </div>
                     <ul className="footer__left-side">
                          <Socials/>
                     </ul>
-                    <div className="footer__rights">
-                         <img src={icon} alt="иконка копирайта" /> <span>Скарецький Євген</span>
+                    <div className="footer__right-side">
+                         <MoneyEarn/>
                     </div>
                </div>
           </footer>

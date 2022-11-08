@@ -6,7 +6,7 @@ import FeedbalckSlider from "../slider-feedbalck/FeedbalckSlider";
 
 import "./projectCart.scss";
 
-const ProjectCart = ({ name, thumbs, nodeRef }) => {
+const ProjectCart = ({ name, thumbs, nodeRef, amount, period, desc }) => {
      const [isSlider, setIsSlider] = useState(false);
 
      const renderName = (name) => {
@@ -51,9 +51,12 @@ const ProjectCart = ({ name, thumbs, nodeRef }) => {
                                    renderName(name)
                               }
                          </h3>
+                         <div className="project__total-amount">Зароблено: <span>{amount}</span></div>
+                         <div className="project__period">Період співпраці: <br /> <span>{period}</span>
+                         </div>
                          <Button 
                               handleClick={(e) => handleOpeningSlider(e)}
-                              children="Побачити результ" 
+                              children="Детальніше" 
                               isCarts 
                               isYellow
                          />

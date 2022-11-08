@@ -68,6 +68,27 @@ const ContactForm = ({handleClosingForm}) => {
           }
      }
 
+     const handleSubmitForm = async (e) => {
+          e.preventDefault();
+
+          const processMessage = {
+               loading: "Запит надсилається",
+               loaded: "Повідомлення успішно відправлено, очікуйте, ми з Вами зв'яжкмося",
+               error: "Щось пішло не так, перевірте вказані дані !"
+          };
+
+          const form = e.currentTarget;
+          let fD = new FormData(form)
+          
+          const responseJSON = await fetch("/src/components/contactFormPopup/php/send-message-to-telegram.php", {
+               method: 'POST',
+               body: fD
+          });
+          
+          console.log(responseJSON)          
+         
+     }
+
      useEffect(() => {
           const numberInput = numberInputRef.current;
 
@@ -93,9 +114,17 @@ const ContactForm = ({handleClosingForm}) => {
      });
 
      const disabledBtn = isInvalidName || number.length < 19;
+     
 
      return (
-          <animated.form style={props} action="#" className="form" tabIndex="0" autoComplete="on">
+          <animated.form 
+               style={props} 
+               action="#" 
+               className="form" 
+               tabIndex="0" 
+               autoComplete="on"
+               onSubmit={(e) => handleSubmitForm(e)}
+          >
                <div className="form__wrapper">
                     <div className="form__content">
                          <input  
@@ -131,7 +160,7 @@ const ContactForm = ({handleClosingForm}) => {
                               onClick={() => checkInvalidInputs()}
                               type="text"  
                               name="branch" 
-                              placeholder="Вашa ніша" 
+                              placeholder="Що потрібно рекламувати?" 
                               tabIndex="0"
                               autoComplete="on"
                               required

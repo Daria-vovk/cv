@@ -6,7 +6,7 @@ import { useTransition, animated } from 'react-spring'
 import "./feedbalckSlider.scss"
 import LazyLoadingImage from "../lazyLoadingImage/LazyLoadingImage";
 
-const FeedbalckSlider = ({thumbsArr, handleClick }) => {
+const FeedbalckSlider = ({thumbsArr, handleClick , desc}) => {
 
      const [[imgPathIndex, dir], setImgPathIndex] = useState([0, 0]);
 

@@ -2,7 +2,6 @@
      font-size: 20px;
      padding: 20px 0px 20px 0px;
      font-weight: 500;
-     font-style: italic;
 
      &__container {
           display: flex;
@@ -35,7 +34,7 @@
      &__find-me {
           white-space: nowrap;
           transition: all 0.3s ease 0s;
-          font-family: "Roboto";
+          // font-family: "Roboto";
           text-transform: uppercase;
 
           @media (max-width: 950px) {

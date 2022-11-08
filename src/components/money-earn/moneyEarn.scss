@@ -38,15 +38,16 @@
 
      @media (max-width: 1121px) {
           left: 10%;
-          top: 190px;
+          top: 130px;
      };
 
      
      @media (max-width: 795px) {
-          left: 4%;
+          left: 5%;
      };
 
      @media (max-width: 770px) {
+          top: 100px;
           span:nth-child(2) {
                margin-left: 80px;
           }
@@ -61,14 +62,14 @@
      @media (max-width: 695px) {
           width: 100%;
           text-align: center;
-          top: 600px;
+          top: 550px;
           left: 0;
           
      };
 
 
-     @media (max-width: 469px) {
-          top: 630px;
-     };
+     // @media (max-width: 469px) {
+     //      top: 630px;
+     // };
 
 }

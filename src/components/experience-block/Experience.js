@@ -1,49 +1,78 @@
-import { useState } from "react";
-
-import classNames from "classnames";
+import { useEffect, useRef, useState } from "react";
 
 import "./experience.scss";
 
-const Experience = ( {coverBlockRef, currentSrolledHeight, isDeletedCovering} ) => {
+const Experience = () => {
+
+     const [currentSrolledHeight, setCurrentSrolledHeight] = useState(null);
+     const [isDeletedCovering, setIsDeletedCovering] = useState(false);
+
+     const experienceRef = useRef(null);
+     const coverBlockRef = useRef(null);
+
+     const handleCoveredBlock = () => {
+
+          if (window.scrollY < 4588) return;
+
+          setCurrentSrolledHeight(window.scrollY)
+
+          if (window.scrollY > 4900) {
+               setIsDeletedCovering(true)
+          }
+          
+          if (window.scrollY > 4500 && coverBlockRef.current) {
+               coverBlockRef.current.style.transform = `translateY(${Math.round(Math.trunc(window.scrollY)  - 4400)}px)`;
+          }
+          
+     }
+
+     useEffect(() => {
+          document.addEventListener("scroll", handleCoveredBlock);
+
+          return () => {
+               document.removeEventListener("scroll", handleCoveredBlock);
+          };
+     }, [])
 
      return (
-          <div className="experince">
+          <div 
+               className="experince"
+               ref={experienceRef}
+          >
                <h3>Мій досвід</h3>
                <div className="experince__wrapper">
                     <div className="experince__atom">
-                         <p>Університет "Атом"</p>
-                         <span>грудень 2021</span>
+                         <p>Перший курс по таргету<br /> онлайн-університет <b>"АТОМ "</b></p>
+                         <span>Травень 2021</span>
                     </div>
                     <div className="experince__first-client">
-                         <p>Перший клієнт</p>
-                         <span>квітень 2021</span>
+                         <p>Перший клієнт в товарці <br /> і успішний кейс</p>
+                         <span>Червень 2021</span>
                     </div>
                     <div className="experince__info-chigans">
-                          <p>Курс від ТОП таргетологів</p>
-                         <span>травень 2021</span>
+                          <p>Перехід на фріланс,<br /> робота помічником таргетолога,<br /> практика в агенції <br /> і особисті проекти.</p>
+                         <span>Жовтень 2021</span>
                     </div>
                     <div className="experince__agency-first">
-                         <p>Робота в агенстві <br />
-                              "Білий трафік"</p>
-                         <span>липень 2021</span>
+                         <p>Новий курс від <br /> “The Best Marketing"</p>
+                         <span>Січень 2022</span>
                     </div>
                     <div className="experince__agency-second">
-                         <p>Робота в агенстві<br />
-                              "Чорний трафік"</p>
-                         <span>червень 2021</span>
+                         <p>Війна, всі проекти на стоп. <br /> Починаю з агенції в Казахстані. <br /> На цей час вже маю 5 успішних кейсів<br />
+                         </p>
+                         <span>Лютий 2022</span>
                     </div>
                     <div className="experince__personal-consult">
-                         <p>Робота з наставником <br />
-                         Бандерой Алиной </p>
-                         <span>серпень 2021</span>
+                         <p>Звільнення з агенції. <br />  На рахунку вже 10+ <br /> успішних проектів <br /> та задоволені клієнти. </p>
+                         <span>Серпень 2022</span>
                     </div>
                     <div className="experince__total-amount">
-                         <p>Робота з 7+ проектами      </p>
-                         <span>вересень 2021</span>
+                         <p>Працюю самостійно, <br /> веду 7 проектів одночасно. <br /> Кейси з ROMI 2000+ %</p>
+                         <span>Жовтень 2022</span>
                     </div>
                </div> 
                {
-                    currentSrolledHeight < 4503 && !isDeletedCovering? <div className="experince__cover" ref={coverBlockRef}></div> : null
+                    currentSrolledHeight < 5275 && !isDeletedCovering? <div className="experince__cover" ref={coverBlockRef}></div> : null
                }
                            
           </div>

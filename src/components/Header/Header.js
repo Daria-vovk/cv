@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import classNames from "classnames"
 import { useTransition, animated } from 'react-spring'
 
-import Button from "../button/Button";
 import Socials from "../socials/Socials";
 import { AlertModal, MenuList } from "../transponder";
 
@@ -33,31 +32,6 @@ const Header = () => {
           delay: 0
      });
      
-     const handleClickToSocials = (e) => {
-
-          e.preventDefault();
-
-          let message =  null;
-
-          switch (e.target.parentElement.getAttribute("dataKey")) {
-               case "string" :
-                    message = "Ви дійсно хочете перейти на сторінку Дарії ?"
-                    break;
-               case "number":
-                    message = "Зателефонувати Дарії ?"
-                    break;
-               case "mail":
-                    message = "Написати листа Дарірї?"
-                    break;
-               default:
-                    message = "Ви впевнені в цьому ?"
-          };
-
-          setParamLinkObj({href: e.target.getAttribute("href")});
-
-          setAlertMessage(message)          
-     };
-
      const handleAlertClose = () => {
           setAlertMessage("");
      }
@@ -83,6 +57,32 @@ const Header = () => {
           )
      };
 
+     const handleClickToSocials = (e) => {
+
+          e.preventDefault();
+
+          let message =  null;
+
+          switch (e.target.parentElement.getAttribute("dataKey")) {
+               case "string" :
+                    message = "Ви дійсно хочете перейти на сторінку Дарії ?"
+                    break;
+               case "number":
+                    message = "Зателефонувати Дарії ?"
+                    break;
+               case "mail":
+                    message = "Написати листа Дарірї?"
+                    break;
+               default:
+                    message = "Ви впевнені в цьому ?"
+          };
+
+          setParamLinkObj({href: e.target.getAttribute("href")});
+
+          setAlertMessage(message)          
+     };
+
+
 
      useEffect(() => {
 
@@ -106,7 +106,7 @@ const Header = () => {
                          alertMessage.length > 1 ? <AlertModal {...paramLinkObj} title={alertMessage} handleAlertClose={handleAlertClose}/> : null
                     }
                     <ul className="header__left-side1" ref={currentLink}>
-                         <li className="header__find-me">Я у соціальних</li>
+                         <li className="header__find-me">Мої контакти</li>
                          {
                               <Socials/>
                          }
