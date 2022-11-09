@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
+import { useSpring, animated } from 'react-spring';
 
 import Button from "../button/Button";
-import { useSpring, animated } from 'react-spring';
 
 import "./contactForm.scss"
 
@@ -11,7 +11,12 @@ const ContactForm = ({handleClosingForm}) => {
 
      const [validString, setValidString] = useState("");
      const [number, setNumber ] = useState("");
+     const [bussinesInput, setBussinesInput] = useState("");
+     const [linkInput, setLinkInput] = useState("");
+     const [commentInput, setCommentInput] = useState("");
      const [isInvalidName, setIsInvalidName] = useState(false);
+     const TOKEN = "5772258054:AAHdSRpWmGILF50Hf12X9gGKaOitP2oxKHw";
+     const CHAT_ID = "-867909441";
      const nameInputRef = useRef(null);
      const numberInputRef = useRef(null);
 
@@ -77,16 +82,19 @@ const ContactForm = ({handleClosingForm}) => {
                error: "Щось пішло не так, перевірте вказані дані !"
           };
 
-          const form = e.currentTarget;
-          let fD = new FormData(form)
-          
-          const responseJSON = await fetch("../../../php/send-message-to-telegram.php", {
-               method: 'POST',
-               body: fD
-          });
+          let message = `Нова заявка з Вашого сайту-портфоліо%0A%0A
+               Ім'я ліда:                                  ${validString}%0A
+               Номер телефону:                 ${number}%0A
+               Ніша просування:                ${bussinesInput}%0A
+               Посилання на аккаунт:      ${linkInput}%0A
+               Комментар клієнта:             ${commentInput}%0A%0A Щасти в роботі ! `
+               
 
-          console.log(responseJSON)          
-         
+          const url = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}`;
+          
+          let xhr = new XMLHttpRequest();
+          xhr.open("GET", url);
+          xhr.send()
      }
 
      useEffect(() => {
@@ -148,6 +156,7 @@ const ContactForm = ({handleClosingForm}) => {
                               onClick={() => checkInvalidInputs()}
                               ref={numberInputRef}
                               value={number}
+                              onChange={(e) => setNumber(e.target.value)}
                               type="text"  
                               name="phone" 
                               placeholder="Ваш телефон" 
@@ -160,7 +169,9 @@ const ContactForm = ({handleClosingForm}) => {
                               onClick={() => checkInvalidInputs()}
                               type="text"  
                               name="branch" 
-                              placeholder="Що потрібно рекламувати?" 
+                              placeholder="Що потрібно рекламувати?"
+                              value={bussinesInput} 
+                              onChange={(e) => setBussinesInput(e.target.value)}
                               tabIndex="0"
                               autoComplete="on"
                               required
@@ -170,14 +181,17 @@ const ContactForm = ({handleClosingForm}) => {
                               onClick={() => checkInvalidInputs()}
                               type="text" 
                               name="link"
-                              placeholder="Посилання на аккаунт Instagram / Сайт" 
+                              placeholder="Посилання на аккаунт Instagram / Сайт"
+                              value={linkInput}
+                              onChange={(e) => setLinkInput(e.target.value)}
                               minLength="5"
-                              maxLength="10"
                               tabIndex="0" 
                               autoComplete="on"/>
                          <textarea 
                               className="form__text-area" 
                               name="comment"
+                              value={commentInput}
+                              onChange={(e) => setCommentInput(e.target.value)}
                               cols="30" rows="10" 
                               placeholder="Коментар"
                               onClick={() => checkInvalidInputs()}
