@@ -110,3 +110,8 @@ button:disabled {
      opacity: 0.4;
      cursor: not-allowed;
 }
+
+.isLoadingForm {
+     background: url('../../assets/mainPage/form/giphy.gif') center/cover no-repeat;
+     min-width: 100px;
+}

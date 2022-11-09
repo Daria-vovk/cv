@@ -40,6 +40,7 @@
      }
 
      &__content {
+          position: relative;
           flex: 1 1 100%;
           // overflow: hidden;
           color: #FBFF22;
@@ -67,6 +68,19 @@
                top: 45px;
           }
           
+     }
+     &__warn {
+          font-size: 10px;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          text-align: center;
+          background-color: green;
+          color: #fff;
+          padding: 5px 10px;
+          border-radius: 15px;
      }
 
      input {

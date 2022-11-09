@@ -15,6 +15,8 @@ const ContactForm = ({handleClosingForm}) => {
      const [linkInput, setLinkInput] = useState("");
      const [commentInput, setCommentInput] = useState("");
      const [isInvalidName, setIsInvalidName] = useState(false);
+     const [loading, setLoading] = useState(false);
+     const [isSuccess, setIsSuccess] = useState(false);
      const TOKEN = "5772258054:AAHdSRpWmGILF50Hf12X9gGKaOitP2oxKHw";
      const CHAT_ID = "-867909441";
      const nameInputRef = useRef(null);
@@ -76,12 +78,6 @@ const ContactForm = ({handleClosingForm}) => {
      const handleSubmitForm = async (e) => {
           e.preventDefault();
 
-          const processMessage = {
-               loading: "Запит надсилається",
-               loaded: "Повідомлення успішно відправлено, очікуйте, ми з Вами зв'яжкмося",
-               error: "Щось пішло не так, перевірте вказані дані !"
-          };
-
           let message = `Нова заявка з Вашого сайту-портфоліо%0A%0A
                Ім'я ліда:                                  ${validString}%0A
                Номер телефону:                 ${number}%0A
@@ -89,12 +85,37 @@ const ContactForm = ({handleClosingForm}) => {
                Посилання на аккаунт:      ${linkInput}%0A
                Комментар клієнта:             ${commentInput}%0A%0A Щасти в роботі ! `
                
-
+               // 
           const url = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}`;
           
           let xhr = new XMLHttpRequest();
           xhr.open("GET", url);
-          xhr.send()
+
+          
+          xhr.onloadstart= function(event) { // запускается периодически
+               setLoading(true);
+          };
+
+          xhr.send();
+
+          xhr.onerror = function(event) { // запускается периодически
+               setLoading(false);
+               throw new Error("Ошибка xhr запроса");
+               handleClosingForm();
+          };
+
+          xhr.onloadend = function(event) {
+               setLoading(false);
+               
+               setIsSuccess(true)
+
+               setTimeout(() => {
+                    setIsSuccess(false)
+                    handleClosingForm();
+               }, 2000)
+               
+          };
+
      }
 
      useEffect(() => {
@@ -120,6 +141,7 @@ const ContactForm = ({handleClosingForm}) => {
      const classNumberInput = classNames("form__phone-input", {
           "form__validNameInput": number.length === 19
      });
+
 
      const disabledBtn = isInvalidName || number.length < 19;
      
@@ -197,8 +219,17 @@ const ContactForm = ({handleClosingForm}) => {
                               onClick={() => checkInvalidInputs()}
                          >
                          </textarea>
+                         {
+                              isSuccess ? <div className="form__warn">Повідомлення успішно відправлено, очікуйте, ми з Вами зв'яжкмося</div> : null
+                         }
                     </div>
-                    <Button className="form__btn-input" tabIndex="1" children="Надіслати" isYellow disabled={disabledBtn}/>
+                    <Button 
+                         className="form__btn-input"
+                         tabIndex="1" 
+                         children={loading ? null : "Надіслати заявку"} 
+                         loading={loading}
+                         isYellow 
+                         disabled={disabledBtn}/>
                     <button 
                          className="form__close"
                          onClick={() => {

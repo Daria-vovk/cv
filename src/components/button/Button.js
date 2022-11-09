@@ -16,7 +16,8 @@ const Button = ({
           handleAddCart,
           disabled,
           section,
-          handleBurger
+          handleBurger,
+          loading
      }) => {
 
      const customization = classNames("button btn-default", {
@@ -26,7 +27,8 @@ const Button = ({
           "btn-pseudo": pseuElem,
           "btn-cart-btn": isCarts,
           "btn-yell-border": yellBorder,
-          "btn-show-more": isShowMore
+          "btn-show-more": isShowMore,
+          "isLoadingForm" : loading
      });
 
      return (

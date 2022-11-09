@@ -112,6 +112,11 @@ const MainPage = () => {
           showGiftIcon();
      }
 
+     const handleClosingForm = () => {
+          setIsOpenForm(false);
+          document.body.classList.remove("_lock");
+     }
+
      useEffect(() => {
           document.addEventListener("scroll", handleScroll);
           // const timeoutID = setTimeout(() => openGiftPopupUpAuto(), 240000);
@@ -191,7 +196,7 @@ const MainPage = () => {
                     }
                          
                     {
-                         isOpenForm ? <ContactForm handleClosingForm={() => setIsOpenForm(false)}/> : null
+                         isOpenForm ? <ContactForm handleClosingForm={() =>  handleClosingForm()}/> : null
                     }
                </div>
           </div >
