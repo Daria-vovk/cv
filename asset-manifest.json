@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/portfolio-target/static/css/main.71ec10f0.css",
-    "main.js": "/portfolio-target/static/js/main.3c314d24.js",
-    "static/media/mainPhoto.jpg": "/portfolio-target/static/media/mainPhoto.baa8b191ff19139cb151.jpg",
-    "static/media/daria.jpg": "/portfolio-target/static/media/daria.85411d1db1b7629d5099.jpg",
+    "main.css": "/portfolio-target/static/css/main.09d2c29c.css",
+    "main.js": "/portfolio-target/static/js/main.e9d1366b.js",
+    "static/media/giphy.gif": "/portfolio-target/static/media/giphy.14d0c30cbb36ea3af9ee.gif",
     "static/media/exper.jpg": "/portfolio-target/static/media/exper.701d1d91cb39c7814e36.jpg",
+    "static/media/mainPhoto.jpg": "/portfolio-target/static/media/mainPhoto.185ce9896d6b2fc4c0f5.jpg",
     "static/media/instagram.svg": "/portfolio-target/static/media/instagram.7f09c5ce0121c6d53e21.svg",
     "static/media/biggift.svg": "/portfolio-target/static/media/biggift.9e5f0f925ae605c9146301c0f281543f.svg",
     "static/media/bi_arrow-left-circle.svg": "/portfolio-target/static/media/bi_arrow-left-circle.e1fdd841be623c93cf88.svg",
@@ -18,11 +18,11 @@
     "static/media/pluses.svg": "/portfolio-target/static/media/pluses.c0851210408e112cb8ac.svg",
     "static/media/lines-right.svg": "/portfolio-target/static/media/lines-right.91c2c1417958bba30c81.svg",
     "static/media/fb.svg": "/portfolio-target/static/media/fb.a9103878a967f19c9754.svg",
-    "main.71ec10f0.css.map": "/portfolio-target/static/css/main.71ec10f0.css.map",
-    "main.3c314d24.js.map": "/portfolio-target/static/js/main.3c314d24.js.map"
+    "main.09d2c29c.css.map": "/portfolio-target/static/css/main.09d2c29c.css.map",
+    "main.e9d1366b.js.map": "/portfolio-target/static/js/main.e9d1366b.js.map"
   },
   "entrypoints": [
-    "static/css/main.71ec10f0.css",
-    "static/js/main.3c314d24.js"
+    "static/css/main.09d2c29c.css",
+    "static/js/main.e9d1366b.js"
   ]
 }
