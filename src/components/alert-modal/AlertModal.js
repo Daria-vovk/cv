@@ -36,7 +36,12 @@ const AlertModal = ({title, href, handleAlertClose}) => {
                                    <button
                                         className="alert__confirm-btn"
                                    >
-                                   <a href={href}>Звісно</a>
+                                   <a 
+                                        href={href}
+                                        onClick={() => handleAlertClose()}
+                                   >
+                                        Звісно
+                                   </a>
                                    </button>
                                    <button
                                         className="alert__cancel-btn"

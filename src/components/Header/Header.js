@@ -59,22 +59,29 @@ const Header = () => {
 
      const handleClickToSocials = (e) => {
 
+          if (alertMessage.length > 1) {
+               setAlertMessage("")
+          }
+
           e.preventDefault();
 
           let message =  null;
 
           switch (e.target.parentElement.getAttribute("dataKey")) {
-               case "string" :
-                    message = "Ви дійсно хочете перейти на сторінку Дарії ?"
+               case "fb" :
+                    message = "Ви дійсно хочете перейти в Facebook?"
                     break;
-               case "number":
-                    message = "Зателефонувати Дарії ?"
+               case "inst":
+                    message = "Ви дійсно хочете перейти в Instagram?"
                     break;
-               case "mail":
-                    message = "Написати листа Дарірї?"
+               case "whtup":
+                    message = "Ви дійсно хочете перейти до WhatsUp?"
+                    break;
+               case "telegram":
+                    message = "Ви дійсно хочете перейти в Telegram?"
                     break;
                default:
-                    message = "Ви впевнені в цьому ?"
+                    message = "Ви впевнені ?"
           };
 
           setParamLinkObj({href: e.target.getAttribute("href")});
@@ -108,7 +115,7 @@ const Header = () => {
                     <ul className="header__left-side1" ref={currentLink}>
                          <li className="header__find-me">Мої контакти</li>
                          {
-                              <Socials/>
+                              <Socials handleAlertClose={handleAlertClose}/>
                          }
                     </ul>
                     <ul className={burgerClass}>

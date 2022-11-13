@@ -7,10 +7,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Socials = () => {
      const [socials, setSocials] = useState([ 
-          {name: "fb", link: "https://ru-ru.facebook.com/people/%D0%94%D0%B0%D1%80%D1%96%D1%8F-%D0%92%D0%BE%D0%B2%D0%BA/100082836740229/", type: "string"},
-          {name: "inst", link: "https://www.instagram.com/dariia_vovk/",  type: "string"},
-          {name: "whtup", link: "tel:+380963276820",  type: "number"},
-          {name: "mail", link: "mailto:dariyavovk1012@gmail.com",  type: "mail"},
+          {name: "fb", link: "https://www.facebook.com/targetolog.dariia", type: "fb"},
+          {name: "inst", link: "https://www.instagram.com/dariia_vovk/",  type: "inst"},
+          {name: "whtup", link: "https://wa.me/380963276820",  type: "whtup"},
+          {name: "telegram", link: "https://t.me/dariia_vovk", type: "telegram"}
+
+          // Раніше використовувались також. Теперь щоб їх додати потрібно втсновити картинки та задати стилі
+          // {name: "mail", link: "mailto:dariyavovk1012@gmail.com",  type: "mail"},
           // {name: "linkIn", link: "nothing",  type: "nothing"},
      ]);
 
@@ -22,12 +25,21 @@ const Socials = () => {
                     "header__social-media_inst": name === "inst",
                     "header__social-media_whtup": name === "whtup",
                     "header__social-media_linkIn": name === "linkIn",
-                    "header__social-media_mail": name === "mail"
+                    "header__social-media_telegram": name === "telegram",
                });
 
                return (
-                    <li className={classSocial} key={uuidv4()} datakey={type} datakind={name}>
-                         <a href={link}></a>
+                    <li 
+                         className={classSocial} 
+                         key={uuidv4()} 
+                         datakey={type} 
+                         datakind={name}
+                    >
+                         <a 
+                              href={link}
+                         >
+                         
+                         </a>
                     </li> 
                );
           });

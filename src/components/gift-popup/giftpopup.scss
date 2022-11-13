@@ -101,7 +101,12 @@
           padding: 0 130px;
 
           li {
-               background-color: rgb(11, 134, 79);
+               background-color: inherit;
+               background-size: 50px;
+
+               &:nth-child(2) {
+                    background: url("../../assets/icons/header/instagram.svg") 51% -25px/ 150% 150% no-repeat;
+               }
 
                @media (max-width: 431px) {
                     &:not(:last-child) {

@@ -37,17 +37,22 @@ const GiftPopup = ({handleClosingPopup}) => {
                                    className="popup-gift gift"
                                    
                               >
-                                   <div className="gift__dialog">
+                                   <div className="gift__dialog"
+                                        onClick={(e) => {
+     
+                                             if (!e.target.classList.contains("header__social-media") 
+                                                  || !e.target.classList.contains("gift__close")) ;
+
+                                             handleClosingPopup();
+                                             document.body.classList.remove("_lock"); 
+                                        }}
+                                   >
                                         <animated.div
                                              className="gift__content"
                                              style={{...style}} 
                                         >
                                              <button 
                                                   className="gift__close"
-                                                  onClick={() => {
-                                                       handleClosingPopup();
-                                                       document.body.classList.remove("_lock"); 
-                                                  } }
                                              >
                                                   &times;
                                              </button>
@@ -56,7 +61,7 @@ const GiftPopup = ({handleClosingPopup}) => {
                                              <ul className="gift__socials-list">
                                                   <Socials/>
                                              </ul>
-                                             <p>Напиши до однії із соцільних мереж слово <span>Подарунок</span> та отримай безкоштовну консультацію по вашому бізнесу !</p>
+                                             <p>Напиши до однії із соцільних мереж слово <span>Подарунок</span> та отримай безкоштовну 30 хвилинну консультацію!</p>
                                         </animated.div>
                                    </div>
                               </div>

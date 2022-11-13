@@ -21,13 +21,8 @@
           @media (max-width: 1120px) {
                text-align: center;
                flex: 1 1 auto;
-               justify-content: center;
-               align-items: center;
-          }
-
-          @media (max-width: 400px) {
                justify-content: left;
-
+               align-items: center;
           }
      }
 
@@ -64,23 +59,23 @@
           }
 
           &_fb {
-               background: url("../../assets/icons/header/fb.svg") center/27px no-repeat #0F0F0F;
+               background: url("../../assets/icons/header/facebook.png") center/27px no-repeat #0F0F0F;
           }
 
           &_inst {
-               background: url("../../assets/icons/header/instagram.svg") center/27px no-repeat #0F0F0F;
+               background: url("../../assets/icons/header/instagram.svg") 1% -7px/ 100% 100% no-repeat #0F0F0F;
           }
 
           &_whtup {
                background: url("../../assets/icons/header/whatsapp.svg") center/27px no-repeat #0F0F0F;
           }
 
-          &_linkIn {
-               background: url("../../assets/icons/header/linkedin.svg") center/27px no-repeat #0F0F0F;
+          &_telegram {
+               background: url("../../assets/icons/header/telegram.svg") center/27px no-repeat #0F0F0F;
           }
-          &_mail {
-               background: url("../../assets/icons/header/email.svg") center/27px no-repeat #0F0F0F;
-          }
+          // &_mail {
+          //      background: url("../../assets/icons/header/email.svg") center/27px no-repeat #0F0F0F;
+          // }
 
           @media (min-width: 750px) {
                &:hover {
