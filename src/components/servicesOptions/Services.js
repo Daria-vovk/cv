@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { v4 as uuidv4 } from 'uuid';
-import { useTransition, animated, config } from "react-spring";
+import { useTransition, animated } from "react-spring";
 
 import { Button, SliderService } from "../transponder";
 
