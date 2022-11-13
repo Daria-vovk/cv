@@ -6,8 +6,8 @@ class MoneyEarn extends Component {
      constructor() {
           super();
           this.state = {
-               thousands: localStorage.getItem("thousands") ?? 81,
-               hundreds: localStorage.getItem("hundreds") ?? 47,
+               thousands: localStorage.getItem("thousands") ?? 103,
+               hundreds: localStorage.getItem("hundreds") ?? 7,
                percentage: localStorage.getItem("percentage") ??  3
           }
      }

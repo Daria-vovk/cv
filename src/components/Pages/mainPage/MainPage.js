@@ -185,6 +185,7 @@ const MainPage = () => {
                                                   document.body.classList.add("_lock");
                                              }
                                         }
+                                        metaLeadTracker={window.fbq}
                                         children="Залишити заявку" 
                                         yellBorder
                                    />
