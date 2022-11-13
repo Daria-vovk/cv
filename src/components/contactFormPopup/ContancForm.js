@@ -14,9 +14,11 @@ const ContactForm = ({handleClosingForm}) => {
      const [bussinesInput, setBussinesInput] = useState("");
      const [linkInput, setLinkInput] = useState("");
      const [commentInput, setCommentInput] = useState("");
+     const [isInvalidAreaInput, setIsInValidAreaInput] = useState(false);
+
      const [isInvalidName, setIsInvalidName] = useState(false);
      const [loading, setLoading] = useState(false);
-     const [isSuccess, setIsSuccess] = useState(false);
+     const [popupFormMessage, setPopupFormMessage] = useState("");
      const TOKEN = "5772258054:AAHdSRpWmGILF50Hf12X9gGKaOitP2oxKHw";
      const CHAT_ID = "-867909441";
      const nameInputRef = useRef(null);
@@ -27,7 +29,7 @@ const ContactForm = ({handleClosingForm}) => {
      const handleNameValidate = (e) => {
           const regExp =  /^(([a-zA-Z' -]{1,80})|([а-яА-ЯЁёІіЇїҐґЄє' - \s]{1,80}))$/u;
           
-          if ( !regExp.test(e.target.value) || validString.length < 3) {
+          if ( !regExp.test(e.target.value)) {
                setValidString(e.target.value)
                setIsInvalidName(true)
               return;
@@ -47,6 +49,7 @@ const ContactForm = ({handleClosingForm}) => {
      }
 
      const createMask = (event) => {
+
           let matrix = '+380 (__) ___ __ __',
                 i = 0,
                 def = matrix.replace(/\D/g, ""),
@@ -55,8 +58,8 @@ const ContactForm = ({handleClosingForm}) => {
           if (def.length >= val.length) {
                val = def;
           }
-     
-          setNumber(matrix.replace(/./g, function(a) {
+
+          const symbol = matrix.replace(/./g, function(a) {
 
                if (/[_\d]/g.test(a) && i < val.length) {
                     return val.charAt(i++);
@@ -66,13 +69,30 @@ const ContactForm = ({handleClosingForm}) => {
                     return a;
                }
      
-          }));
+          });
+     
+          setNumber(symbol);
      
           if (event.type === "blur") {
                if (event.target.value.length <= 3) {
                     numberInputRef.current.value = "";
                }
           }
+     }
+
+     const checkInvalidArea = (e) => {
+ 
+          const symbol = e.target.value.replace(/./g, (a) => {
+               if (/[\w\s а-яёыії]/gi.test(a)) {
+                    setIsInValidAreaInput(false);
+                    return a;
+               } else {
+                    setIsInValidAreaInput(true);
+                  return  ""
+               }
+          });
+
+          setBussinesInput(symbol)
      }
 
      const handleSubmitForm = async (e) => {
@@ -82,8 +102,8 @@ const ContactForm = ({handleClosingForm}) => {
                Ім'я ліда:                                  ${validString}%0A
                Номер телефону:                 ${number}%0A
                Ніша просування:                ${bussinesInput}%0A
-               Посилання на аккаунт:      ${linkInput}%0A
-               Комментар клієнта:             ${commentInput}%0A%0A Щасти в роботі ! `
+               Посилання на аккаунт:      ${linkInput || "Не було заповнено"}%0A
+               Комментар клієнта:             ${commentInput || "Не було заповнено"}%0A%0A Щасти в роботі ! `
                
                // 
           const url = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}`;
@@ -91,28 +111,32 @@ const ContactForm = ({handleClosingForm}) => {
           let xhr = new XMLHttpRequest();
           xhr.open("GET", url);
 
+          xhr.onerror = function() { 
+               setPopupFormMessage("Виникла помилка, перевірте інтеренет з'єднання");
+
+               setTimeout(() => {
+                    setPopupFormMessage("")
+               }, 3000)
+          };
           
-          xhr.onloadstart= function(event) { // запускается периодически
+          xhr.onloadstart = function (event) { 
                setLoading(true);
           };
 
           xhr.send();
 
-          xhr.onerror = function(event) { // запускается периодически
-               setLoading(false);
-               throw new Error("Ошибка xhr запроса");
-               handleClosingForm();
-          };
-
           xhr.onloadend = function(event) {
                setLoading(false);
+
+               if (xhr.status !== 200) return;
                
-               setIsSuccess(true)
+               
+               setPopupFormMessage("Повідомлення успішно відправлено, очікуйте, ми з Вами зв'яжкмося");
 
                setTimeout(() => {
-                    setIsSuccess(false)
+                    setPopupFormMessage("")
                     handleClosingForm();
-               }, 2000)
+               }, 3000)
                
           };
 
@@ -135,15 +159,25 @@ const ContactForm = ({handleClosingForm}) => {
 
      const classInvalidInput = classNames("form__name-input", {
           "form__invalidNameInput": isInvalidName,
-          "form__validNameInput": !isInvalidName && validString
+          "form__validNameInput": !isInvalidName && validString.length > 3
      });
 
      const classNumberInput = classNames("form__phone-input", {
           "form__validNameInput": number.length === 19
      });
 
+     const classAreaInput = classNames("form__adv-input", {
+          "adv-input-succes": !isInvalidAreaInput && bussinesInput.length > 3,
+          "adv-input-invalid": isInvalidAreaInput && bussinesInput.length > 0
+     })
 
-     const disabledBtn = isInvalidName || number.length < 19;
+     const classWarnMessageForm = classNames("form__warn", {
+          "form__warn_error": popupFormMessage === "Виникла помилка, перевірте інтеренет з'єднання",
+          "form__warn_success": popupFormMessage === "Повідомлення успішно відправлено, очікуйте, ми з Вами зв'яжкмося"
+     })
+
+
+     const disabledBtn = validString.length < 4 || number.length < 19 || bussinesInput.length < 4;
      
 
      return (
@@ -178,7 +212,7 @@ const ContactForm = ({handleClosingForm}) => {
                               onClick={() => checkInvalidInputs()}
                               ref={numberInputRef}
                               value={number}
-                              onChange={(e) => setNumber(e.target.value)}
+                              onChange={(e) => createMask(e)}
                               type="text"  
                               name="phone" 
                               placeholder="Ваш телефон" 
@@ -186,18 +220,23 @@ const ContactForm = ({handleClosingForm}) => {
                               autoComplete="on" 
                               required
                          />
-                         <input  
-                              className="form__link-input" 
-                              onClick={() => checkInvalidInputs()}
-                              type="text"  
-                              name="branch" 
-                              placeholder="Що потрібно рекламувати?"
-                              value={bussinesInput} 
-                              onChange={(e) => setBussinesInput(e.target.value)}
-                              tabIndex="0"
-                              autoComplete="on"
-                              required
-                         />
+                         <div className="form__advInput-wrapper">
+                              <input  
+                                   className={classAreaInput} 
+                                   onClick={() => checkInvalidInputs()}
+                                   type="text"  
+                                   name="branch" 
+                                   placeholder="Що потрібно рекламувати?"
+                                   value={bussinesInput} 
+                                   onChange={(e) => checkInvalidArea(e) }
+                                   tabIndex="0"
+                                   autoComplete="on"
+                                   required
+                              />
+                         </div>
+                         {
+                              isInvalidAreaInput && bussinesInput.length > 0 ? <span>Дозволено вводити лише цифри та літери!</span> : null
+                         }
                          <input 
                               className="form__link-input"
                               onClick={() => checkInvalidInputs()}
@@ -220,7 +259,7 @@ const ContactForm = ({handleClosingForm}) => {
                          >
                          </textarea>
                          {
-                              isSuccess ? <div className="form__warn">Повідомлення успішно відправлено, очікуйте, ми з Вами зв'яжкмося</div> : null
+                              popupFormMessage? <div className={classWarnMessageForm}>{popupFormMessage}</div> : null
                          }
                     </div>
                     <Button 

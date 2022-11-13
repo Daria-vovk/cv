@@ -1,7 +1,7 @@
 import Button from "../button/Button";
 import { LazyLoadingImage } from "../transponder";
 
-import mainPhoto from "../../assets/mainPage/mainPhoto.jpg";
+import mainPhoto from "../../assets/mainPage/main-grey.jpg";
 
 import "./description.scss"
 

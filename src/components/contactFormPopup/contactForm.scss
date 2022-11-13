@@ -7,7 +7,7 @@
      height: 100%;
      // background: url("../../assets/mainPage/daria.jpg") 85% 25% / 300px  no-repeat  rgba(0, 0, 0, .91);
      background-color:  rgba(0, 0, 0, .91);
-     overflow: auto;
+     // overflow: hidden;
 
      &__wrapper {
           position: absolute;
@@ -21,7 +21,7 @@
           min-width: 320px;
           min-height: 500px;
           background-color: #000;
-          overflow: auto;
+          // overflow: auto;
 
           
           display: flex;
@@ -44,7 +44,6 @@
           flex: 1 1 100%;
           // overflow: hidden;
           color: #FBFF22;
-          position: relative;
 
           span {
                position: absolute;
@@ -77,16 +76,38 @@
           transform: translateX(-50%);
           width: 100%;
           text-align: center;
-          background-color: green;
           color: #fff;
           padding: 5px 10px;
-          border-radius: 15px;
+          border-radius: 10px;
+
+          &_success {
+               background-color: green;
+          }
+
+          &_error {
+               color: #fff;
+               background-color: red;
+          }
+     }
+
+     &__advInput-wrapper {
+          margin-bottom: .4em;
+
+          &::before {
+               content: "*";
+               font-size: 15px;
+               display: inline-block;
+               position: absolute;
+               top: 90px;
+               left: -25px;
+               color: #FBFF22;
+          }
+
      }
 
      input {
           display: block;
           width: 100%;
-          // height: 12%;
           padding: .5em;
           border: 1px solid #999;
           color: #999;
@@ -106,7 +127,7 @@
           &:focus {
                border: 1px solid #FBFF22;
                color: #FBFF22;
-               transform: scale(1.11);
+               // transform: scale(1.11);
           }
      }
 
@@ -134,12 +155,14 @@
           }
      }
 
-     &__invalidNameInput {
+     &__invalidNameInput,
+     .adv-input-invalid {
           border: 1px solid red !important;
           color: red !important;
      }
 
-     &__validNameInput {
+     &__validNameInput,
+     .adv-input-succes {
           border: 1px solid green !important;
           color: green !important;
           transform: scale(1.1);
@@ -154,7 +177,6 @@
      }
 
      &__name-input {
-          position: relative;
          
      }
 
@@ -170,8 +192,11 @@
      }
 
      &__btn-input {
-     }
+     } 
+}
 
-     
+
+.form__advInput-wrapper + span {
+     top: 121px;
 }
      

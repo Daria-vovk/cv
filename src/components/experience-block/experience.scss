@@ -101,6 +101,10 @@
 
      &__agency-second {
           top: 270px !important;
+
+          #war {
+               color: red ;
+          }
      }
 
      &__personal-consult {
@@ -118,7 +122,7 @@
           width: 90px;
           height: 100%;
           background-color: black;
-          transition: all 1.3s ease 0s;
+          transition: all 4.3s ease 0s;
 
           @media (max-width: 1120px) {
                display: none;

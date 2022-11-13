@@ -12,18 +12,13 @@ const Experience = () => {
 
      const handleCoveredBlock = () => {
 
-          if (window.scrollY < 4588) return;
+          if (window.scrollY < 4500) return;
 
           setCurrentSrolledHeight(window.scrollY)
-
-          if (window.scrollY > 4900) {
-               setIsDeletedCovering(true)
-          }
           
           if (window.scrollY > 4500 && coverBlockRef.current) {
-               coverBlockRef.current.style.transform = `translateY(${Math.round(Math.trunc(window.scrollY)  - 4400)}px)`;
-          }
-          
+               coverBlockRef.current.style.transform = `translateY(100%)`;
+          }          
      }
 
      useEffect(() => {
@@ -58,7 +53,7 @@ const Experience = () => {
                          <span>Січень 2022</span>
                     </div>
                     <div className="experince__agency-second">
-                         <p>Війна, всі проекти на стоп. <br /> Починаю з агенції в Казахстані. <br /> На цей час вже маю 5 успішних кейсів<br />
+                         <p><span id="war">Війна</span> , всі проекти на стоп. <br /> Починаю з агенції в Казахстані. <br /> На цей час вже маю 5 успішних кейсів<br />
                          </p>
                          <span>Лютий 2022</span>
                     </div>
@@ -72,7 +67,7 @@ const Experience = () => {
                     </div>
                </div> 
                {
-                    currentSrolledHeight < 5275 && !isDeletedCovering? <div className="experince__cover" ref={coverBlockRef}></div> : null
+                    currentSrolledHeight < 5575 ? <div className="experince__cover" ref={coverBlockRef}></div> : null
                }
                            
           </div>

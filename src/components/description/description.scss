@@ -196,7 +196,7 @@
 
                     to {
                          transform: rotate(360deg);
-                         box-shadow: inset 0 0 45px 15px #FBFF22;
+                         box-shadow: inset 0 0 15px 5px #FBFF22;
                     }
                }
           }
@@ -238,7 +238,7 @@
           position: absolute;
           width: 430px;
           height: 500px;
-          clip-path: circle(46% at 50% 50%);
+          clip-path: circle(40% at 50% 50%);
 
           @keyframes load {
                from {
