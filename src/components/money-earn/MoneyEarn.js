@@ -8,7 +8,7 @@ class MoneyEarn extends Component {
           this.state = {
                thousands: localStorage.getItem("thousands") ?? 103,
                hundreds: localStorage.getItem("hundreds") ?? 7,
-               percentage: localStorage.getItem("percentage") ??  3
+               percentage: localStorage.getItem("percentage") ??  12
           }
      }
 

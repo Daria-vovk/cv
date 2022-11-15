@@ -16,7 +16,7 @@
           transform: translate(-50%, -50%);
           width: 100%;
           max-height: 482.31px;
-          padding: 50px 0;
+          padding: 50px 0 70px 0;
           overflow: hidden;
 
           display: flex;
@@ -33,9 +33,14 @@
 
      &__slide {
           position: relative;
- 
+          min-height: 200px;
           height: 100%;
+          border-radius: 15px;
           // overflow: hidden;
+
+          .image-loaded {
+               width: 85% !important;
+          }
 
           img {
                width: 100%;
@@ -52,6 +57,7 @@
      }
 
      &__pagination {
+
      }
 
      &__button-prev {
@@ -69,7 +75,7 @@
                bottom: 50%;
 
                @media (max-width: 520px) {
-                    left: calc(50% - 120px);
+                    left: calc(50% - 160px);
                     bottom: 10px;
                };
           }
@@ -97,7 +103,7 @@
 
           @media (max-width: 520px) {
                bottom: 10px;
-               right: calc(50% - 120px);
+               right: calc(50% - 160px);
           };
 
      }

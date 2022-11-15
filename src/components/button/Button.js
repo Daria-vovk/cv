@@ -18,7 +18,6 @@ const Button = ({
           section,
           handleBurger,
           loading,
-          metaLeadTracker
      }) => {
 
      const customization = classNames("button btn-default", {

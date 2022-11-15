@@ -41,7 +41,11 @@ const Services = ({handleOpeningForm}) => {
           }
      ])
 
-     const transitions = useTransition(serviceContent, {
+     const booleanForUseTransition = serviceContent === "target";
+     
+     // console.log(booleanForUseTransition)
+
+     const transitions = useTransition(booleanForUseTransition, {
           from: {opacity: 0,transform: "translateY(-50%) scale(0.4)"},
           enter: {opacity: 1, transform: "translateY(0%) scale(1)"},
           leave: { opacity: 0, transform: "translateY(150%) scale(0.4)",  position: "absolute"},
@@ -94,81 +98,81 @@ const Services = ({handleOpeningForm}) => {
                </ul>
                <>
                     {
-                         transitions((style, serviceContent) => (
-                              serviceContent === "target" ? (<animated.div
+                         transitions((style, serviceContent) => {
+                              return (
+                                   serviceContent ? (<animated.div
+                                                       style={style}
+                                                       className={classContentBlock}
+                                                  >
+                                                  <div
+                                                       className='content-block__first-col'>
+                                                       <div className="content-block__wrapper">
+                                                            <h4 className="content-block__title">{targetContent.title}</h4>
+                                                            <ul className="content-block__list">
+                                                                 {
+                                                                      targetContent.service.map((item) => {
+                                                                           return (
+                                                                                <li className="content-block__item" key={uuidv4()}>{item}</li>
+                                                                           )
+                                                                      })
+                                                                 }
+                                                            </ul> 
+                                                       </div>
+                                                       <Button children={"Дізнатися ціну"} handleOpeningForm={handleOpeningForm} yellBorder/>
+                                                  </div>
+                                                  <div 
+                                                       className='content-block__second-col'
+                                                  >
+                                                       <h4 className="content-block__title">Відгуки</h4>
+                                                       <div className="content-block__btn-block">
+                                                  </div>
+                                                       <SliderService thumbs={targetContent.thumbs}/>
+                                                  </div>
+                                             </animated.div>)
+
+                                        : (<animated.div 
+                                             className={classContentBlock}
                                              style={{
                                                   ...style
                                              }}
-                                             className={classContentBlock}>
-                                             <div
-                                                  className='content-block__first-col'>
+                                        >
+                                             <div className='content-block__first-col'>
                                                   <div className="content-block__wrapper">
-                                                       <h4 className="content-block__title">{targetContent.title}</h4>
+                                                       <h4 className="content-block__title">{consultContnt.title}</h4>
                                                        <ul className="content-block__list">
+                                                       <span>1. {consultContnt.list[0]}</span>
                                                             {
-                                                                 targetContent.service.map((item) => {
+                                                                 consultContnt.items.learn.map((item) => {
                                                                       return (
-                                                                           <li className="content-block__item" key={uuidv4()}>{item}</li>
+                                                                           <li className="content-block__item content-block__item_consult" key={uuidv4()}>{item}</li>
+                                                                      )
+                                                                 })
+                                                            }
+                                                       </ul>
+                                                       <ul className="content-block__list">
+                                                       <span>2. {consultContnt.list[1]}</span>
+                                                            {
+                                                                 consultContnt.items.technical.map((item) => {
+                                                                      return (
+                                                                           <li className="content-block__item content-block__item_consult" key={uuidv4()}>{item}</li>
                                                                       )
                                                                  })
                                                             }
                                                        </ul> 
                                                   </div>
-                                                  <Button children={"Дізнатися ціну"} handleOpeningForm={handleOpeningForm} yellBorder/>
+                                                  <Button children={"Дізнатися деталі"} handleOpeningForm={handleOpeningForm} yellBorder/>
                                              </div>
                                              <div 
-                                                  className='content-block__second-col'
-                                             >
+                                                  className='content-block__second-col'>
                                                   <h4 className="content-block__title">Відгуки</h4>
                                                   <div className="content-block__btn-block">
                                              </div>
-                                                  <SliderService thumbs={targetContent.thumbs}/>
+                                                  <SliderService thumbs={consultContnt.thumbs}/>
                                              </div>
-                                        </animated.div>)
-
-                                   : (<animated.div 
-                                        className={classContentBlock}
-                                        style={{
-                                             ...style
-                                        }}
-                                   >
-                                        <div className='content-block__first-col'>
-                                             <div className="content-block__wrapper">
-                                                  <h4 className="content-block__title">{consultContnt.title}</h4>
-                                                  <ul className="content-block__list">
-                                                      <span>1. {consultContnt.list[0]}</span>
-                                                       {
-                                                            consultContnt.items.learn.map((item) => {
-                                                                 return (
-                                                                      <li className="content-block__item content-block__item_consult" key={uuidv4()}>{item}</li>
-                                                                 )
-                                                            })
-                                                       }
-                                                  </ul>
-                                                  <ul className="content-block__list">
-                                                      <span>2. {consultContnt.list[1]}</span>
-                                                       {
-                                                            consultContnt.items.technical.map((item) => {
-                                                                 return (
-                                                                      <li className="content-block__item content-block__item_consult" key={uuidv4()}>{item}</li>
-                                                                 )
-                                                            })
-                                                       }
-                                                  </ul> 
-                                             </div>
-                                             <Button children={"Дізнатися деталі"} handleOpeningForm={handleOpeningForm} yellBorder/>
-                                        </div>
-                                        <div 
-                                             className='content-block__second-col'>
-                                             <h4 className="content-block__title">Відгуки</h4>
-                                             <div className="content-block__btn-block">
-                                        </div>
-                                             <SliderService thumbs={consultContnt.thumbs}/>
-                                        </div>
-                                   </animated.div>
-                                   )    
-                              )
-                         )
+                                        </animated.div>
+                                        )    
+                                   )
+                         })
                     }
                </>
           </div>

@@ -6,16 +6,8 @@ import FeedbalckSlider from "../slider-feedbalck/FeedbalckSlider";
 
 import "./projectCart.scss";
 
-const ProjectCart = ({ name, thumbs, nodeRef, amount, period, desc }) => {
+const ProjectCart = ({ name, thumbs, nodeRef, amount, period, romi,tax }) => {
      const [isSlider, setIsSlider] = useState(false);
-
-     const renderName = (name) => {
-          return (
-               <>
-                    <span>{name.split(" ")[0]}</span> <br /> {name.split(" ").slice(1).join(" ")}
-               </>
-          )
-     }
 
      const handleOpeningSlider= (e) => {
           if (!e) return;
@@ -47,13 +39,11 @@ const ProjectCart = ({ name, thumbs, nodeRef, amount, period, desc }) => {
                     </div>
                     <div className="project__text-block">
                          <h3 className="project__text-block-title">
-                              {
-                                   renderName(name)
-                              }
+                              <span>{name}</span>
                          </h3>
-                         <div className="project__total-amount">Зароблено: <span>{amount}</span></div>
-                         <div className="project__period">Період співпраці: <br /> <span>{period}</span>
-                         </div>
+                         <div className="project__romi">ROMI: <span>{romi}</span></div>
+                         <div className="project__total-amount">Заробили: <span>{amount}</span></div>
+                         <div className="project__period">Вклали: <span>{tax}</span></div>
                          <Button 
                               handleClick={(e) => handleOpeningSlider(e)}
                               children="Детальніше" 

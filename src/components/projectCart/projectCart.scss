@@ -67,7 +67,7 @@
      }
 
      &__text-block-title {
-          font-size: 22px;
+          font-size: 18px;
           line-height: 28px;
           text-align: center;
           margin-bottom: 10px;
@@ -77,6 +77,7 @@
           }
           
           @media (min-width: 730px) {
+               font-size: 22px;
                text-align: center;
                margin-bottom: 0;
           }
@@ -94,6 +95,20 @@
           }
      }
 
+     &__romi {
+          font-size: 20px;
+          text-align: center;
+
+          span {
+               color: #FBFF22;
+          }
+
+          @media (max-width: 730px) {
+               font-size: 15px;
+               margin-bottom: 10px;
+          };
+     }
+
      &__period {
           font-size: 18px;
           white-space: nowrap;
@@ -101,10 +116,11 @@
           line-height: 1.7em;
           
           span {
-               color: green;
+               color: #FBFF22;
           }
 
           @media (max-width: 730px) {
+               font-size: 15px;
                br {
                     display: none;
                }

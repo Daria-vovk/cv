@@ -6,7 +6,7 @@ import { useTransition, animated } from 'react-spring'
 import "./feedbalckSlider.scss"
 import LazyLoadingImage from "../lazyLoadingImage/LazyLoadingImage";
 
-const FeedbalckSlider = ({thumbsArr, handleClick , desc}) => {
+const FeedbalckSlider = ({thumbsArr, handleClick}) => {
 
      const [[imgPathIndex, dir], setImgPathIndex] = useState([0, 0]);
 
@@ -14,26 +14,26 @@ const FeedbalckSlider = ({thumbsArr, handleClick , desc}) => {
      const imgPath =  Array.isArray(thumbsArr) 
           ? process.env.PUBLIC_URL + `/${thumbsArr[imgPathIndex]}` 
           : process.env.PUBLIC_URL + `/${thumbsArr}`;
-
+     
           
      const transitions = useTransition(imgPath, {
           from: {
                opacity: 0,
                position: "absolute",
                transform: `translate3d(${dir === 1 ? 100 : -100}%, 0%, 0) scale(0.5)`,
-             },
-             enter: {
+          },
+          enter: {
                position: "relative",
                opacity: 1,
                transform: `translate3d(0, 0, 0) scale(1)`,
-             },
-             leave: {
+          },
+          leave: {
                opacity: 0,
                transform: `translate3d(${dir === 1 ? 100 : -100}%, 0%, 0) scale(0.5)`,
                position: "absolute"
-             },
-             delay: 200,
-             config:{duration: 300}
+          },
+
+          config:{duration: 300}
      });
 
      const handleChangeSlide = (dig) => {
@@ -62,6 +62,7 @@ const FeedbalckSlider = ({thumbsArr, handleClick , desc}) => {
                )
           });
      };
+     
 
 
      return (

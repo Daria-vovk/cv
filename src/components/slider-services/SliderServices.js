@@ -8,11 +8,11 @@ import "./sliderServices.scss";
 const SliderService = ({thumbs}) => {
      const [[imgPathIndex, dir], setImgPathIndex] = useState([0, 0]);
 
-     const imgPath =  Array.isArray(thumbs) 
-          ? process.env.PUBLIC_URL + `/sliderService/${thumbs[imgPathIndex]}` 
-          : process.env.PUBLIC_URL + `/${thumbs}`;
+     // const imgPath =  Array.isArray(thumbs) 
+     //      ? 
+     //      : process.env.PUBLIC_URL + `/${thumbs}`;
 
-     const transitions = useTransition(imgPath, {
+     const transitions = useTransition(imgPathIndex[0], {
           from: {
                opacity: 0,
                transform: `translateX(${dir === 1 ? 100 : -100}%)`,
@@ -45,12 +45,12 @@ const SliderService = ({thumbs}) => {
                 <div className="slider__wrapper">
                     <div className="slider__slide slide">
                     {
-                         transitions((style, path) => {
+                         transitions((style, slideIndex) => {
                               return (
                                    <animated.div
                                         className="slider__wrapper-div"
                                         style={{...style}}>
-                                   <LazyLoadingImage src={path}/>
+                                   <LazyLoadingImage src={process.env.PUBLIC_URL + `/sliderService/${thumbs[slideIndex]}` }/>
                                    </animated.div>)
                          })
                     }

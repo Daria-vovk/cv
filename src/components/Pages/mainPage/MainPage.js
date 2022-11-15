@@ -1,6 +1,6 @@
 import { useState, useEffect, createRef } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import {Button, ContactForm, Description, Experience, Feedbalck, GiftPopup, MoneyEarn, ProjectCart, Services} from "../../transponder"
+import {Button, ContactForm, Description, Experience, GiftPopup, MoneyEarn, ProjectCart, Services} from "../../transponder"
 
 import "./mainPage.scss";
 
@@ -10,28 +10,31 @@ import arrowTop from "../../../assets/footer/top-arrow.svg"
 const MainPage = () => {
      const [projectCarts, setProjectCarts] = useState([
           {
-               name: "FoodRuns Mobile Apps",
+               name: "БАЗА ВІДПОЧИНКУ",
                id: 0,
-               thumbs: ["clos.jpg", "1.jpg", "2.jpg"],
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur sequi pariatur ea deleniti cumque excepturi quidem provident reprehenderit maxime ipsa!",
+               thumbs: ["first-case/img1.jpg", "first-case/img2.jpg", "first-case/img3.jpg", "first-case/img4.jpg", "first-case/img5.jpg",
+                    "first-case/img6.jpg", "first-case/img7.jpg", "first-case/img8.jpg"
+               ],
                nodeRef: createRef(null),
-               amount: "$1700",
-               period: "2 місяці"
+               romi: "2055,67%",
+               amount: "$37 635,84",
+               tax: "$1 745,86"
           },
           {
-               name: "Estate Landing Page",
+               name: "ПІДГУЗНИКИ",
                id: 1,
-               thumbs: "2.jpg",
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati.",
+               thumbs: ["second-case/img1.jpg", "second-case/img2.jpg", "second-case/img3.jpg", "second-case/img4.jpg", "second-case/img5.jpg",
+                    "second-case/img6.jpg", "second-case/img7.jpg", "second-case/img8.jpg"
+               ],
                nodeRef: createRef(null),
-               amount: "$2700",
-               period: "3 місяці"
+               romi: "949,76%",
+               amount: "$30 388,27",
+               tax: "$2 894,77"
           },
           {
                name: "Estate Landing Page",
                id: 2,
-               thumbs: "3.jpg",
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati.",
+               thumbs: ["first-case/img1.jpg", "first-case/img2.jpg", "first-case/img3.jpg", "first-case/img4.jpg"],
                nodeRef: createRef(null),
                amount: "$4700",
                period: "4 місяці"
@@ -39,8 +42,7 @@ const MainPage = () => {
           {
                name: "Sneakers E-commerce Mobile App",
                id: 3,
-               thumbs: "4.jpg",
-               desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, obcaecati.",
+               thumbs: ["second-case/img1.jpg", "second-case/img2.jpg", "second-case/img3.jpg"],
                nodeRef: createRef(null),
                amount: "$35000",
                period: "7 місяців"
@@ -134,8 +136,7 @@ const MainPage = () => {
           
      }, [])
 
-     return (
-          
+     return ( 
           <div className="main-page"> 
                <MoneyEarn/>
                <Description setIsOpenForm={setIsOpenForm} />
@@ -185,7 +186,6 @@ const MainPage = () => {
                                                   document.body.classList.add("_lock");
                                              }
                                         }
-                                        metaLeadTracker={window.fbq}
                                         children="Залишити заявку" 
                                         yellBorder
                                    />
