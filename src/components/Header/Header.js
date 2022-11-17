@@ -45,10 +45,11 @@ const Header = () => {
                          <animated.nav
                               style={style}
                               className="right-burger__body"
-                         >
+                         >    
                               <ul 
                                    className="right-burger__menu"
                               >
+                                                                 <div className="right-burger__title">Меню - навігація</div>
                                    <MenuList handleBurger={{isBurger, setIsBurger}}/>
                               </ul>
                          </animated.nav>       

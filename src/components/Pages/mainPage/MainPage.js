@@ -1,11 +1,10 @@
 import { useState, useEffect, createRef } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import {Button, ContactForm, Description, Experience, GiftPopup, MoneyEarn, ProjectCart, Services} from "../../transponder"
+import {ArrowToTop, Button, ContactForm, Description, Experience, GiftPopup, MoneyEarn, ProjectCart, Services} from "../../transponder"
 
 import "./mainPage.scss";
 
 import gift from "../../../assets/mainPage/gift.png";
-import arrowTop from "../../../assets/footer/top-arrow.svg"
 
 const MainPage = () => {
      const [projectCarts, setProjectCarts] = useState([
@@ -121,10 +120,6 @@ const MainPage = () => {
           document.body.classList.remove("_lock");
      }
 
-     const handleScrollTop = () => {
-          document.querySelector(".header").scrollIntoView({behavior: "smooth"});
-     }
-
      useEffect(() => {
           document.addEventListener("scroll", handleScroll);
           // const timeoutID = setTimeout(() => openGiftPopupUpAuto(), 240000);
@@ -204,12 +199,7 @@ const MainPage = () => {
                                                                       alt="Іконка подарунку" 
                                                                       className="main-page__gift-icon"
                                                                       onClick={() => handleOpenGiftModal()}/>
-                                                                 : isArrowTop ? <img 
-                                                                                     src={arrowTop} 
-                                                                                     alt="Іконка стрілки для переміщення вверх" 
-                                                                                     className="main-page__arrowTop-icon"
-                                                                                     onClick={() => handleScrollTop()}
-                                                                                /> : null
+                                                                 : isArrowTop ? <ArrowToTop/>: null
                     }
                          
                     {

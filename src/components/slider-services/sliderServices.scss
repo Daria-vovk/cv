@@ -1,7 +1,8 @@
 .slider {
      width: 100%;
      box-sizing: border-box;
-     padding-bottom: 10px;
+     padding: 10px ;
+
      
      &__wrapper {
           position: relative;
@@ -16,35 +17,23 @@
           width: 100%;
           height: 100%;
           border-radius: 15px;
+          padding: 20px;
 
           display: flex;
           align-items: center;
           justify-content: center;
-
-          @media (min-width: 450px) {
-               padding: 20px;
-          };
-
-          @media (max-width: 450px) {
-               padding-bottom: 20px;
-          };
      }
 
      &__slide {
-          width: 100%;
+          // width:70%;
+          margin: 0 auto;
           overflow: hidden;
-          height: 250px;
+          height: 290px;
           
 
           display: flex;
           align-items: center;
           justify-content: center;
-
-          // img {
-          //      width: 100%;
-          //      object-fit: contain;
-          //      border-radius: 20px;
-          // }
 
           @media (min-width: 600px) {
                height: 360px;
@@ -55,7 +44,7 @@
      &__button-prev {
           position: absolute;
           bottom: 0px;
-          left: 50px;
+          left: 30px;
           font-size: 52px;
           transition: all 0.3s ease 0s;
           width: 20px;
@@ -66,12 +55,16 @@
                border-color: transparent #848483 transparent transparent;
                transform: scale(1.1);
           }
+
+          @media (max-width: 380px) {
+               left: 10px;
+          };
      }
 
      &__button-next {
           @extend .slider__button-prev;
           transform: rotate(180deg);
-          left: 80%;
+          left: 90%;
           background: url("../../assets/mainPage/slider/bi_arrow-left-circle.svg") no-repeat center/cover;
 
           &:hover {

@@ -13,3 +13,4 @@ export {default as LazyLoadingImage} from "../lazyLoadingImage/LazyLoadingImage"
 export {default as AlertModal} from "../alert-modal/AlertModal";
 export {default as MenuList} from "../menu-list/MenuList";
 export {default as MoneyEarn} from "../money-earn/MoneyEarn";
+export {default as ArrowToTop} from "../arrow-to-top/ArrowToTop";

@@ -1,13 +1,12 @@
 .header {
      font-size: 20px;
-     padding: 20px 0px 20px 0px;
+     padding: 10px 0px;
      font-weight: 500;
 
      &__container {
           display: flex;
           justify-content: space-between;
-          align-items: center;
-          
+          align-items: center;          
      }
 
 
@@ -16,6 +15,7 @@
           align-items: center;
           gap: 5px 1em;
           margin-right: 20px;
+          padding: 10px 0 0 0;
           text-align: center !important;
 
           @media (max-width: 1120px) {
@@ -29,17 +29,12 @@
      &__find-me {
           white-space: nowrap;
           transition: all 0.3s ease 0s;
-          // font-family: "Roboto";
           text-transform: uppercase;
+          pointer-events: none;
+          opacity: 0.8;
 
           @media (max-width: 950px) {
                display: none;
-          }
-
-          @media (min-width: 750px) {
-               &:hover {
-                    color: #FBFF22
-               }
           }
      }
 
@@ -86,7 +81,7 @@
      }
 
      &__right-side {
-
+     
      }
 
      @media (max-width:1140px) {
@@ -136,28 +131,27 @@
           transition: all .3s ease 0s;
           font-size: 16px;
 
-          @media (min-width: 975px) {
-               font-size: 20px;
+          @media (min-width: 750px) {
                &:hover {
                     border: 2px solid #FBFF22;
                     color: #FBFF22;
-                    transform:translateY(0);
-               }
-          }
-
-          @media (max-width: 750px) {
-               &:active {
-                    border: 2px solid #FBFF22;
-                    color: #FBFF22;
-                    transform:translateY(0);
+                    transform:translateY(-5px);
                }
           }
 
           @media (max-width: 950px) {
+               justify-self: start !important;
                border: 2px solid #fff;
-               border-radius: 20px;
+               border-radius: 10px;
+
                &:not(:last-child) {
                     margin-bottom: 2em;
+               }
+
+               &:active {
+                    border: 2px solid #FBFF22;
+                    color: #FBFF22;
+                    transform:translateY(0);
                }
           }
      }
@@ -226,6 +220,15 @@
           &.active {
                .right-burger {
 
+                    &__title {
+                         color: #FBFF22;
+                         z-index: 10;
+                         font-size: 30px;
+                         text-align: center;
+                         margin-bottom: 70px;
+                         text-transform: uppercase;
+                         cursor: none;
+                    }
                     &__icon {
                          z-index: 7;
                          
@@ -257,9 +260,12 @@
                          overflow: auto;
                          background-color: #000;
                          text-align: center;
+
                          display: flex;
                          flex-direction: column;
-                         justify-content: center;
+                         justify-content: start;
+                         padding-top: 5vh;
+
 
                          button {
                               font-size: 22px;

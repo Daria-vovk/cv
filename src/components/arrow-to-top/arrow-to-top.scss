@@ -1,0 +1,35 @@
+.main-page__arrowTop-icon {
+     position: fixed;
+     right: 10px;
+     bottom: 30px;
+     width: 30px;
+     height: 30px;
+     z-index: 8;
+     cursor: pointer;
+     transition: all 0.5s ease 0s;
+     background-color: inherit;
+     animation: start-shine 2s ease-in-out infinite alternate;
+     border-radius:50%;
+
+     @media (min-width: 550px) {
+          right: 40px;
+          width: 50px;
+          height: 50px;
+     };
+
+     @media (max-width: 450px) {
+          bottom: 50px;
+     };
+
+     @media (min-width: 750px) {
+          &:hover {
+               transform: scale(0.7);
+          }
+     }
+
+     @media (max-width: 750px) {
+          &:active {
+               transform: scale(0.5);
+          }
+     }
+}

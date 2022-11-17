@@ -18,7 +18,7 @@ const Services = ({handleOpeningForm}) => {
                     "Запуск тестових рекламних кампаній", "Масштабування результатів"
                ],
                type: "target",
-               thumbs: ["target1.jpg", "target2.jpg", "target3.jpg", "target4.jpg", "target5.jpg", "target6.jpg"]
+               thumbs: ["target1.jpg","target2.jpg", "target3.jpg", "target4.jpg", "target5.jpg", "target6.jpg"]
           },
           {
                title: "Консультація",
@@ -99,6 +99,7 @@ const Services = ({handleOpeningForm}) => {
                <>
                     {
                          transitions((style, serviceContent) => {
+                              
                               return (
                                    serviceContent ? (<animated.div
                                                        style={style}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTransition, animated } from "react-spring";
+import {  animated, useTransition } from "react-spring";
 
 import LazyLoadingImage from "../lazyLoadingImage/LazyLoadingImage";
 
@@ -8,27 +8,28 @@ import "./sliderServices.scss";
 const SliderService = ({thumbs}) => {
      const [[imgPathIndex, dir], setImgPathIndex] = useState([0, 0]);
 
-     // const imgPath =  Array.isArray(thumbs) 
-     //      ? 
-     //      : process.env.PUBLIC_URL + `/${thumbs}`;
+     const imgPath =  Array.isArray(thumbs) 
+          ? process.env.PUBLIC_URL + `/sliderService/${thumbs[imgPathIndex]}` 
+          : process.env.PUBLIC_URL + `/${thumbs}`;
 
-     const transitions = useTransition(imgPathIndex[0], {
+     const transitions = useTransition(imgPath, {
           from: {
+               position: "absolute",
                opacity: 0,
-               transform: `translateX(${dir === 1 ? 100 : -100}%)`,
-               },
-               enter: {
-                    opacity: 1,
-                    transform: `translateX(0)`,
-               },
-               leave: {
-                    position: "absolute",
-                    opacity: 0,
-                    transform: `translateX(${dir === 1 ? -100 : 100}%)`,
-               },
-               config:{duration: 300},
-               initial: false
-               
+               transform: `translate3d(${dir === 1 ? 100 : -100}%, 0%, 0) scale(0.5)`,
+          },
+          enter: {
+               position: "relative",
+               opacity: 1,
+               transform: `translate3d(0, 0, 0) scale(1)`,
+          },
+          leave: {
+               opacity: 0,
+               transform: `translate3d(${dir === 1 ? 100 : -100}%, 0%, 0) scale(0.5)`,
+               position: "absolute"
+          },
+
+          config:{duration: 300}
      });
 
      const handleChangeSlide = (dig) => {
@@ -39,21 +40,27 @@ const SliderService = ({thumbs}) => {
                setImgPathIndex( [(imgPathIndex + dig + thumbs.length) % thumbs.length, -1] );
           }
      };
-
+     
      return (
           <div className="slider">
                 <div className="slider__wrapper">
                     <div className="slider__slide slide">
-                    {
-                         transitions((style, slideIndex) => {
-                              return (
-                                   <animated.div
-                                        className="slider__wrapper-div"
-                                        style={{...style}}>
-                                   <LazyLoadingImage src={process.env.PUBLIC_URL + `/sliderService/${thumbs[slideIndex]}` }/>
-                                   </animated.div>)
-                         })
-                    }
+                         <div
+                              className="slider__wrapper-div"
+                         >  
+                         {
+                              transitions((style, path) => {
+                                   return (
+                                        <animated.div 
+                                             style={{...style}}
+                                             className="slider__slide slide"
+                                        >
+                                             <LazyLoadingImage src={path} alt="слайдер " />
+                                        </animated.div>
+                                   )
+                              })
+                         }
+                         </div>
                     </div>
                     <button 
                          className="slider__button-prev slider__button-prev_prev1"
